@@ -1,1 +1,4 @@
-# c2060506_csc1034_project2_2022
+Portfolio 2
+===========
+### Banking app
++ Run the main file and navigate through the various options with the user inputs.
