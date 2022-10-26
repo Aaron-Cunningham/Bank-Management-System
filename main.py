@@ -1,11 +1,19 @@
-from menu import menu
+
+from menu import Menu
 from self import self
+
+
+menu = Menu()
+
 class main:
 
     def test(self):
-        print()
+        pass
+
+
 if __name__ == '__main__':
+    # Creates menu object to use functions from menu5
+    menu_system = Menu.menu(self)
+    menu_system.run()
 
-    menu.menu(self)
-
-
+    # Menu.menu(self)
