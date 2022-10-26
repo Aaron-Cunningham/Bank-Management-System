@@ -1,9 +1,29 @@
 Banking application
-===========
-### About this app
+=
+This is a terminal based banking application that uses the Pandas Data Analysis Library. 
+This app has a vast amount of functionality such as been able to see all clients of 
+the bank, deposit/withdraw money from a clients account, search for specific clients
+in the bank, and add a client to the bank. This was created as part of my ***Programming 
+portfolio 2*** assessment at Newcastle University. This projected used an OOP approach by 
+creating objects such as 'menu' and 'functions' in order to call functions and run functions
+from other classes
+
+Getting started with the banking app
+=
+Inorder to use this app you need to make sure you have the requirements installed from the
+requirements folder. Once this is done you can continue.
+
+1) Open the file ```menu.py``` and press run in the top right corner and you will be presented
+with a banking application in the terminal section 
+2) To access a function in the menu system simply input the number of the function you want to
+use and 
+3) Carry on using the input feature when asked to do so to add or access more features
 
 
-### Breakdown of the functions in menu_functions.py
+Breakdown of the functions
+=
+
+### Functions in menu_functions.py
 
 ```viewClients()```
 
