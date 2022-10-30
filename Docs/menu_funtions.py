@@ -1,28 +1,29 @@
 import re
-
+from self import self
 import pandas as pd
 # from menu import Menu
 import random
-from self import self
+
 
 
 # Creates menu object to use functions from menu
 # menu = Menu()
 
 class Functions:
+    def __init__(self, client):
+        self.client = client
+
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', 1000)
 
     def viewClients(self):
         """Views all clients in the CSV file"""
-        clients = pd.read_csv("data/client_data.csv")
         print(clients)
         Functions.returnToMenu(self)
 
     def removeClient(self):
-        from menu import Menu
-        clients = pd.read_csv("data/client_data.csv")
+        from banking_system.menu import Menu
         # option variable set at 0 default
         option = 0
         default = 0
@@ -84,7 +85,7 @@ class Functions:
         elif option != default:
             print("Not a valid input, aborted deletion")
             Menu.menu(self)
-        clients.to_csv("data/client_data.csv", index = False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print("                                            Client deleted                                  ")
         print('*' * 107)
@@ -134,8 +135,6 @@ class Functions:
             except ValueError:
                 print("Enter only int values")
 
-        # Reads CSV file
-        clients = pd.read_csv("data/client_data.csv")
         # Adds data based on what was inputted
         clients.loc[len(clients)] = [firstName, lastName, title, accountNumber, dateOfBirth, occupation, accountBalance,
                                      overDraftLimit]
@@ -149,10 +148,7 @@ class Functions:
     def depositMoney(self):
         """This function deposits money to a clients account"""
 
-        from menu import Menu
-        # Reads CSV file
-        clients = pd.read_csv("data/client_data.csv")
-
+        from banking_system.menu import Menu
         print("*" * 79)
         print()
         # While loop until user enters int values
@@ -230,9 +226,7 @@ class Functions:
 
     def withdrawMoney(self):
         """This function withdraws money from a clients account"""
-        from menu import Menu
-        # Reads CSV file
-        clients = pd.read_csv("data/client_data.csv")
+        from banking_system.menu import Menu
         # Fee variable to charge for overdraft
         fee = 5
         print("*" * 48)
@@ -314,9 +308,8 @@ class Functions:
 
     def accountSearch(self):
         """This function searches data of a specific client using name and date of birth"""
-        from menu import Menu
+        from banking_system.menu import Menu
         default = 0
-        self.clients = clients = pd.read_csv("data/client_data.csv")
         print()
         # while loop when condition is true
         while True:
@@ -375,7 +368,7 @@ class Functions:
 
     def returnToMenu(self):
         '''Function that returns user back to the menu or exits the program'''
-        from menu import Menu
+        from banking_system.menu import Menu
 
         """Function that returns user back to the menu"""
         default = 0
@@ -398,3 +391,31 @@ class Functions:
             exit()
         elif option != default:
             Menu.returnToMenu(self)
+
+    def editClient(self):
+
+        print("What would you like to edit? \n"
+              "Select 1 for first name\n"
+              "Select 2 for last name\n"
+              "Select 3 for title\n"
+              "Select 4 for occupation")
+        while True:
+            # Try except when user enters wrong value in input
+            try:
+                option = int(input('Enter your option: '))
+                # Breaks out of loop
+                break
+            except ValueError:
+                print("Menu options only!")
+        # Menu options
+        if option == 1:
+            print('option 1')
+        elif option == 2:
+            exit()
+        elif option != default:
+            Functions.editClient()
+
+
+
+clients = pd.read_csv("../data/client_data.csv")
+default = 0
