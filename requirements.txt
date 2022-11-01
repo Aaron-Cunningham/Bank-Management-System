@@ -1,2 +1,3 @@
 pandas
 self
+typer
