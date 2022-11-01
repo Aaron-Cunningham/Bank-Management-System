@@ -3,6 +3,7 @@ import pandas as pd
 import re
 from self import self
 from edit_client import edit_client
+from people import Users
 
 
 
@@ -61,7 +62,7 @@ class Menu:
     def run(self):
         """Displays the menu and allows the user to input a choice"""
         while True:
-            self.menu()
+            Menu.menu(self)
             option = input("Enter an option: ")
             select = self.menuChoices.get(option)
             if select:
@@ -93,7 +94,7 @@ class Menu:
         print(
             "                                                                 CLIENTS                                                                    ")
         print("*" * 140)
-        print(clients)
+        Users(Users).viewAll()
         self.returnToMenu()
 
     def remove_client(self):
@@ -180,9 +181,7 @@ class Menu:
             # Try except when user enters wrong values
             try:
                 dateOfBirth = input("Enter Birthday in this format mm/dd/yyyy: ")
-                # dateOfBirth = datetime.strptime(birthday, '%m/%d/%Y').date()
-                # birthday = pd.to_datetime(pd.Series(input("Enter Birthday in this format m/dd/yyyy: ")))
-                # dateOfBirth = birthday.dt.strftime('%m/%d/%Y')
+
                 # Breaks out of loop
                 break
             except:
@@ -221,8 +220,6 @@ class Menu:
 
     def deposit_money(self):
         """This function deposits money to a clients account"""
-
-        from menu import Menu
         print("*" * 79)
         print()
         # While loop until user enters int values
@@ -238,8 +235,6 @@ class Menu:
                 print("Enter only int values")
         print("*" * 79)
         print()
-        # accountHolder = (clients.loc[clients['Account Number'] == accountNumber])
-
         # While loop while condition is true
         while True:
             # Trys to find account holder with user input
@@ -259,7 +254,7 @@ class Menu:
                 except:
                     print("Enter int values only")
                 if option == 1:
-                    self.depositMoney()
+                    self.deposit_money()
                 elif option == 2:
                     self.returnToMenu()
                     break
@@ -365,8 +360,7 @@ class Menu:
                 print("Enter only int values")
 
         # Locates the row of the account number that matches input from user and edits balance from users input
-        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients[
-                                                                                           'Account balance'] - withdraw
+        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients['Account balance'] - withdraw
         # Adds £5 fee if the client goes over their overdraft limit
         clients.loc[clients['overdraft limit'] > clients['Account balance'], 'Account balance'] -= fee
         # Writes to CSV file with updated data
@@ -485,15 +479,17 @@ class Menu:
                 print("Menu options only!")
         # Menu options
         if option == 1:
-            edit_client.edit_name()
+            self.edit_name()
         elif option == 2:
-            edit_client.edit_last_name()
+            self.edit_last_name()
         elif option == 3:
-            edit_client.edit_title()
+            self.edit_title()
         elif option == 4:
-            edit_client.edit_occupation()
+            self.edit_occupation()
         elif option != default:
             self.edit_client()
+        elif option == 5:
+            self.run()
 
     def exit(self):
         exit()
@@ -513,6 +509,249 @@ class Menu:
         print(negativeBalance)
         print("*" * 107)
         self.returnToMenu()
+
+    def edit_name(self):
+        from menu import Menu
+        """Allows the clients name to be edited"""
+        while True:
+            # Try except when user enters wrong value in input
+            try:
+                # Input for the user to enter the account number to add money to
+                accountNumber = int(
+                    input("Enter the account number of the account you wish to edit: "))
+                # Breaks out of loop when int used
+                break
+            except ValueError:
+                print("Enter only int values")
+
+        # While loop while condition is true
+        while True:
+            # Trys to find account holder with user input
+            try:
+                accountHolder = (clients.loc[clients['Account Number'] == accountNumber])
+                # If Data set is empty(Client can't be found)
+                if accountHolder.empty == True:
+                    raise Exception
+                break
+                # Catches exception to allow research
+            except:
+                print("No account found, would you like to try again?\n"
+                      "1: Yes\n"
+                      "2: Return to menu")
+                try:
+                    option = int(input("Enter your choice: "))
+                except:
+                    print("Enter int values only")
+                if option == 1:
+                    self.edit_name()
+                elif option == 2:
+                    self.menu()
+                    break
+        # Finds the client with the inputted account number
+        client = (clients.loc[clients['Account Number'] == accountNumber])
+        print('*' * 107)
+        print(client)
+        print("*" * 107)
+        # newName variable set as an input for the new name of the client
+        newName = input("Enter the name you want to change to: ")
+        # Updates the clients name
+        clients.loc[(clients['Account Number'] == accountNumber), 'First name'] = newName
+        # Gets an updated list of the client
+        updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
+        print("*" * 107)
+        # Prints updated client details
+        print(updatedClient)
+        print("*" * 107)
+        # Writes updated client details
+        clients.to_csv("../data/client_data.csv", index=False)
+        print('*' * 107)
+        print(
+            "                                         Clients information updated                                     ")
+        print('*' * 107)
+
+        self.run()
+
+    def edit_last_name(self):
+        """Allows the clients last name to be edited"""
+        while True:
+            # Try except when user enters wrong value in input
+            try:
+                # Input for the user to enter the account number to add money to
+                accountNumber = int(
+                    input("Enter the account number of the account you wish to edit: "))
+                # Breaks out of loop when int used
+                break
+            except ValueError:
+                print("Enter only int values")
+
+        # While loop while condition is true
+        while True:
+            # Trys to find account holder with user input
+            try:
+                accountHolder = (clients.loc[clients['Account Number'] == accountNumber])
+
+                # If Data set is empty(Client can't be found)
+                if accountHolder.empty == True:
+                    raise Exception
+                break
+                # Catches exception to allow research
+            except:
+                print("No account found, would you like to try again?\n"
+                      "1: Yes\n"
+                      "2: Return to menu")
+                try:
+                    option = int(input("Enter your choice: "))
+                except:
+                    print("Enter int values only")
+                if option == 1:
+                    self.edit_last_name()
+                elif option == 2:
+                    self.menu()
+                    break
+        # Finds the account associated with the account number inputted
+        client = (clients.loc[clients['Account Number'] == accountNumber])
+        print('*' * 107)
+        # Prints the client with old details
+        print(client)
+        print("*" * 107)
+        # newName variable set to an input for the uer to input the new name
+        newName = input("Enter the last name you want to change to: ")
+        # Updates the account with the new name inputted
+        clients.loc[(clients['Account Number'] == accountNumber), 'Last name'] = newName
+        # Gets an updated list of the client
+        updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
+        print("*" * 107)
+        # Prints updated client details
+        print(updatedClient)
+        print("*" * 107)
+        # Writes updated client details to CSV file
+        clients.to_csv("../data/client_data.csv", index=False)
+        print('*' * 107)
+        print(
+            "                                         Clients information updated                                     ")
+        print('*' * 107)
+        self.run()
+
+    def edit_title(self):
+        """Edits the clients title"""
+        while True:
+            # Try except when user enters wrong value in input
+            try:
+                # Input for the user to enter the account number to add money to
+                accountNumber = int(
+                    input("Enter the account number of the account you wish to edit: "))
+                # Breaks out of loop when int used
+                break
+            except ValueError:
+                print("Enter only int values")
+
+        # While loop while condition is true
+        while True:
+            # Trys to find account holder with user input
+            try:
+                accountHolder = (clients.loc[clients['Account Number'] == accountNumber])
+
+                # If Data set is empty(Client can't be found)
+                if accountHolder.empty == True:
+                    raise Exception
+                break
+                # Catches exception to allow research
+            except:
+                print("No account found, would you like to try again?\n"
+                      "1: Yes\n"
+                      "2: Return to menu")
+                try:
+                    option = int(input("Enter your choice: "))
+                except:
+                    print("Enter int values only")
+                if option == 1:
+                    self.edit_title()
+                elif option == 2:
+                    self.menu()
+                    break
+        # Client is matched with the account number inputted
+        client = (clients.loc[clients['Account Number'] == accountNumber])
+        print('*' * 107)
+        print(client)
+        print("*" * 107)
+        # newTitle varible set for the user to enter the new title for the client
+        newTitle = input("Enter the title you want to change to: ")
+        # Updates the clients title
+        clients.loc[(clients['Account Number'] == accountNumber), 'Title'] = newTitle
+        # Retrieves an updated list of clients
+        updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
+        print("*" * 107)
+        # Prints updated clients details
+        print(updatedClient)
+        print("*" * 107)
+        # Writes the updated list to the CSV file
+        clients.to_csv("../data/client_data.csv", index=False)
+        print('*' * 107)
+        print(
+            "                                         Clients information updated                                     ")
+        print('*' * 107)
+        self.run()
+
+    def edit_occupation(self):
+        """Allows the clients occupation to be edited"""
+        while True:
+            # Try except when user enters wrong value in input
+            try:
+                # Input for the user to enter the account number to add money to
+                accountNumber = int(
+                    input("Enter the account number of the account you wish to edit: "))
+                # Breaks out of loop when int used
+                break
+            except ValueError:
+                print("Enter only int values")
+
+        # While loop while condition is true
+        while True:
+            # Trys to find account holder with user input
+            try:
+                accountHolder = (clients.loc[clients['Account Number'] == accountNumber])
+
+                # If Data set is empty(Client can't be found)
+                if accountHolder.empty == True:
+                    raise Exception
+                break
+                # Catches exception to allow research
+            except:
+
+                print("No account found, would you like to try again?\n"
+                      "1: Yes\n"
+                      "2: Return to menu")
+                try:
+                    option = int(input("Enter your choice: "))
+                except:
+                    print("Enter int values only")
+                if option == 1:
+                    self.edit_occupation()
+                elif option == 2:
+                    self.menu()
+                    break
+        # Clients account is equal to the account number inputted
+        client = (clients.loc[clients['Account Number'] == accountNumber])
+        print('*' * 107)
+        print(client)
+        print("*" * 107)
+        # newOccupation variable set to an input from the user to change to
+        newOccupation = input("Enter the occupation you want to change to: ")
+        # Updated the clients details with the new inputted occupation
+        clients.loc[(clients['Account Number'] == accountNumber), 'Occupation'] = newOccupation
+        # updatedClient variable to fetch the updated list with the new client details
+        updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
+        print("*" * 107)
+        print(updatedClient)
+        print("*" * 107)
+        # Saves the new updated information to a CSV file
+        clients.to_csv("../data/client_data.csv", index=False)
+        print('*' * 107)
+        print(
+            "                                         Clients information updated                                     ")
+        print('*' * 107)
+        self.returnToMenu()
+
 
 edit_client = edit_client()
 
