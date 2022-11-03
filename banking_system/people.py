@@ -2,20 +2,17 @@ import pandas as pd
 import typer
 
 
-app = typer.Typer()
-
-
-
 # Class definition
 class Users():
-
 
     # constructor/initialiser
     def __init__(self, users):
         # Users properties and attribute
         self.__users = users
-
-
+        # Fee that is changeable
+        self.__fee = 5
+        # List of clients in the bank
+        self.__client = pd.read_csv("../data/client_data.csv")
 
     def view_all(self):
         """
@@ -23,34 +20,48 @@ class Users():
 
         """
         # Prints all the clients from the bank
-        print(f"{clients.__users}")
-
+        print(f"{self.__client}")
 
     def search(self, account):
 
         """
         This method searches for an account using the account number, then it prints the account.
         """
-        account = Users(people.loc[people['Account Number'] == account])
+        account = Users(self.__client.loc[self.__client['Account Number'] == account])
 
         print(f"{account.__users}")
 
-    def search_by_name(self, firstName, lastName, dateOfBirth):
+    def search_by_name(self, first_name, last_name, date_of_birth):
         """
         This method search the clients of the bank by name and date of birth.
 
         It is not case-sensitive.
 
         """
+        # While loop while condition is true
+        while True:
+            # Trys to find the account
+            try:
+                __accountHolder = Users(
+                    self.__client.loc[self.__client['First name'].str.contains(first_name, case=False) & (
+                        self.__client['Last name'].str.contains(last_name, case=False)) & (
+                                          self.__client['Date of birth'].str.contains(date_of_birth))])
+                if __accountHolder.__users.empty:
+                    raise Exception
 
-        __accountHolder = Users(people.loc[people['First name'].str.contains(firstName, case=False) & (
-            people['Last name'].str.contains(lastName, case=False)) & (
-                                               people['Date of birth'].str.contains(dateOfBirth))])
+                # Catches exception
+            except:
+                print("No account found, please try again")
+                # Breaks out of while loop when this condition is met
+                break
+            else:
+                # If account is found it will print it
+                print(f"{__accountHolder.__users}")
+                # Breaks out of while loop when condition is met
+                break
 
-        print(f"{__accountHolder.__users}")
-
-    def add_client(self, firstName, lastName, title, accountNumber, dateOfBirth, occupation, accountBalance,
-                  overdraftLimit):
+    def add_client(self, first_name, last_name, title, account_number, date_of_birth, occupation, account_balance,
+                   overdraft_limit):
         """This method allows a client to be added to the bank.
 
         It takes the users first name, last name, title, account number, date of birth, occupation,
@@ -59,11 +70,11 @@ class Users():
         String values are only allowed for the first name, last name, title, and occupation.
         """
         # Only allows first name to be a string
-        if firstName.isalpha() == False:
+        if first_name.isalpha() == False:
             print("First name takes string values only")
             exit()
         # Only allows last name to be a string
-        elif lastName.isalpha() == False:
+        elif last_name.isalpha() == False:
             print("Last name takes string values only")
             exit()
         # Only allows title to be a string
@@ -71,7 +82,7 @@ class Users():
             print("Title takes string values only")
             exit()
         # Only allows date of birth to be int/special char values
-        elif dateOfBirth.isalpha() == True:
+        elif date_of_birth.isalpha() == True:
             print("Please fill out the date of birth in this order MM/DD/YYYY")
             exit()
         # Only allows for string values
@@ -79,66 +90,78 @@ class Users():
             print("Occupation takes string values only")
             exit()
         # Only allows account balance to be positive
-        elif accountBalance < 0:
+        elif account_balance < 0:
             print("No negative balances for account balance")
             exit()
             # Only allows overdraft limit to be negative
             exit()
-        elif overdraftLimit > 0:
+        elif overdraft_limit > 0:
             print("No positive values for overdraft limit")
             exit()
 
         # Trys to run this code snippet
         try:
-            people.loc[len(people)] = [firstName, lastName, title, accountNumber, dateOfBirth, occupation,
-                                       accountBalance,
-                                       overdraftLimit]
+            self.__client.loc[len(self.__client)] = [first_name, last_name, title, account_number, date_of_birth,
+                                                     occupation,
+                                                     account_balance,
+                                                     overdraft_limit]
         # If there is an error it will except it and print this message and close exit the method
         except:
             print("Something went wrong, please try again")
             exit()
 
-        __accountHolder = Users(people.loc[people['Account Number'] == accountNumber])
+        __accountHolder = Users(self.__client.loc[self.__client['Account Number'] == account_number])
 
-        people.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("../data/client_data.csv", index=False)
         print("You just added the account:")
         print()
         print(f"{__accountHolder.__users}")
 
+    def edit_first_name(self, account, new_name):
 
-    def edit_first_name(self, account, newName):
-
-        __account = Users(people.loc[people['Account Number'] == account])
+        __account = Users(self.__client.loc[self.__client['Account Number'] == account])
         print('*' * 107)
         print(f"{__account.__users}")
         print("*" * 107)
         # newName variable set as an input for the new name of the client
 
         # Updates the clients name
-        people.loc[(people['Account Number'] == account), 'First name'] = newName
+        self.__client.loc[(self.__client['Account Number'] == account), 'First name'] = new_name
         # Gets an updated list of the client
-        __account.__users = (people.loc[people['Account Number'] == account])
+        __account.__users = (self.__client.loc[self.__client['Account Number'] == account])
         print("Updated Account:")
         print(f"{__account.__users}")
-        people.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("../data/client_data.csv", index=False)
 
-    def withdraw(self, account, withdraw, fee=5):
-        __account = Users(people.loc[people['Account Number'] == account])
+    def withdraw(self, account, withdraw):
+        # While loop while condition is true
+        while True:
+            # Trys to find the account
+            try:
+                __account = Users(self.__client.loc[self.__client['Account Number'] == account])
+                if __account.__users.empty:
+                    raise Exception
 
-        print(f"{__account.__users}")
+                # Catches exception
+            except:
+                print("No account found, please try again")
+                # Breaks out of while loop when this condition is met
+                exit()
+            else:
+                # If account is found it will print it
+                print("Old account balance")
+                print(f"{__account.__users}")
+                # Breaks out of while loop when condition is met
+                break
 
         # Locates the row of the account number that matches input from user and edits balance from users input
-        people.loc[people['Account Number'] == account, ['Account balance']] = people['Account balance'] - withdraw
+        self.__client.loc[self.__client['Account Number'] == account, ['Account balance']] = self.__client['Account balance'] - withdraw
         # Adds £5 fee if the client goes over their overdraft limit
-        people.loc[people['overdraft limit'] > people['Account balance'], 'Account balance'] -= fee
-        people.to_csv("../data/client_data.csv", index=False)
+        self.__client.loc[self.__client['overdraft limit'] > self.__client['Account balance'], 'Account balance'] -= self.__fee
+        self.__client.to_csv("../data/client_data.csv", index=False)
 
-        updatedAccount = Users(people.loc[people['Account Number'] == account])
+        updatedAccount = Users(self.__client.loc[self.__client['Account Number'] == account])
+
+        print()
+        print("Updated account balance: ")
         print(f"{updatedAccount.__users}")
-
-
-
-
-# Create clients object
-people = pd.read_csv("../data/client_data.csv")
-clients = Users(pd.read_csv("../data/client_data.csv"))
