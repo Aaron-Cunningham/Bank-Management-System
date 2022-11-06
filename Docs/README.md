@@ -9,7 +9,10 @@ creating objects such as 'menu' and 'functions' in order to call functions and r
 from other classes
 
 
-`pip install pandas`
+`pip install pandas`j
+depending on which version of python your using write `python` or `python3` on terminal commands
+
+`python banking_system/main.py`
 
 
 
