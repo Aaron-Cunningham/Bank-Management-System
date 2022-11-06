@@ -2,7 +2,6 @@ import random
 import pandas as pd
 import re
 from self import self
-from edit_client import edit_client
 from people import Users
 
 
@@ -13,7 +12,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 1000)
 
-clients = pd.read_csv("../data/client_data.csv")
+clients = pd.read_csv("data/client_data.csv")
 default = 0
 
 
@@ -94,7 +93,7 @@ class Menu:
         print(
             "                                                                 CLIENTS                                                                    ")
         print("*" * 140)
-        Users(Users).viewAll()
+        Users(Users).view_all()
         self.returnToMenu()
 
     def remove_client(self):
@@ -159,7 +158,7 @@ class Menu:
         elif option != default:
             print("Not a valid input, aborted deletion")
             self.run()
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print("                                            Client deleted                                  ")
         print('*' * 107)
@@ -211,7 +210,7 @@ class Menu:
         clients.loc[len(clients)] = [firstName, lastName, title, accountNumber, dateOfBirth, occupation,
                                      accountBalance,
                                      overDraftLimit]
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print(clients)
         print("****************************************\n"
               "        Successfully Added Client               \n"
@@ -291,7 +290,7 @@ class Menu:
             "                                         Clients money deposited                                     ")
         print("*" * 107)
 
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         self.returnToMenu()
 
     def withdraw_money(self):
@@ -364,7 +363,7 @@ class Menu:
         # Adds £5 fee if the client goes over their overdraft limit
         clients.loc[clients['overdraft limit'] > clients['Account balance'], 'Account balance'] -= fee
         # Writes to CSV file with updated data
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
 
         updatedAmount = (clients.loc[clients['Account Number'] == accountNumber])
         # prints clients details with updated withdrawn amount
@@ -563,7 +562,7 @@ class Menu:
         print(updatedClient)
         print("*" * 107)
         # Writes updated client details
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print(
             "                                         Clients information updated                                     ")
@@ -625,7 +624,7 @@ class Menu:
         print(updatedClient)
         print("*" * 107)
         # Writes updated client details to CSV file
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print(
             "                                         Clients information updated                                     ")
@@ -685,7 +684,7 @@ class Menu:
         print(updatedClient)
         print("*" * 107)
         # Writes the updated list to the CSV file
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print(
             "                                         Clients information updated                                     ")
@@ -745,7 +744,7 @@ class Menu:
         print(updatedClient)
         print("*" * 107)
         # Saves the new updated information to a CSV file
-        clients.to_csv("../data/client_data.csv", index=False)
+        clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print(
             "                                         Clients information updated                                     ")
@@ -753,5 +752,4 @@ class Menu:
         self.returnToMenu()
 
 
-edit_client = edit_client()
 
