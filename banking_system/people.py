@@ -7,22 +7,13 @@ class Users():
 
     # constructor/initialiser
     def __init__(self, users):
-
-
-        # Users properties and attribute
+        # Users properties
         self.__users = users
         # Fee that is changeable
         self.__fee = 5
         # List of clients in the bank
-        self.__client = pd.read_csv("../data/client_data.csv")
-        self.__write = self.__client.to_csv("../data/client_data.csv", index=False)
-
-
-
-
-
-
-
+        self.__client = pd.read_csv("data/client_data.csv")
+        self.__write = self.__client.to_csv("data/client_data.csv", index=False)
 
     def view_all(self):
         """
@@ -71,7 +62,8 @@ class Users():
                 # Breaks out of while loop when condition is met
                 break
 
-    def add_client(self, first_name, last_name, title, account_number, date_of_birth, occupation, account_balance, overdraft_limit):
+    def add_client(self, first_name, last_name, title, account_number, date_of_birth, occupation, account_balance,
+                   overdraft_limit):
         """This method allows a client to be added to the bank.
 
         It takes the users first name, last name, title, account number, date of birth, occupation,
@@ -122,7 +114,7 @@ class Users():
 
         __accountHolder = Users(self.__client.loc[self.__client['Account Number'] == account_number])
 
-        self.__client.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("data/client_data.csv", index=False)
         print("You just added the account:")
         print()
         print(f"{__accountHolder.__users}")
@@ -141,7 +133,7 @@ class Users():
         __account.__users = (self.__client.loc[self.__client['Account Number'] == account])
         print("Updated Account:")
         print(f"{__account.__users}")
-        self.__client.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("data/client_data.csv", index=False)
 
     def withdraw(self, account, withdraw):
         # While loop while condition is true
@@ -165,24 +157,20 @@ class Users():
                 break
 
         # Locates the row of the account number that matches input from user and edits balance from users input
-        self.__client.loc[self.__client['Account Number'] == account, ['Account balance']] = self.__client['Account balance'] - withdraw
+        self.__client.loc[self.__client['Account Number'] == account, ['Account balance']] = self.__client[
+                                                                                                 'Account balance'] - withdraw
         # Adds £5 fee if the client goes over their overdraft limit
 
-        self.__client.loc[self.__client['overdraft limit'] > self.__client['Account balance'], 'Account balance'] -= self.__fee
+        self.__client.loc[
+            self.__client['overdraft limit'] > self.__client['Account balance'], 'Account balance'] -= self.__fee
 
-
-        self.__client.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("data/client_data.csv", index=False)
 
         updatedAccount = Users(self.__client.loc[self.__client['Account Number'] == account])
-
-
-
-
 
         print()
         print("Updated account balance: ")
         print(f"{updatedAccount.__users}")
-
 
     def deposit(self, account, deposit):
         while True:
@@ -207,10 +195,10 @@ class Users():
 
         # Locates the row of the account number that matches input from user and edits balance from users input
         self.__client.loc[self.__client['Account Number'] == account, ['Account balance']] = self.__client[
-                                                                                           'Account balance'] + deposit
+                                                                                                 'Account balance'] + deposit
 
         updatedAccount = Users(self.__client.loc[self.__client['Account Number'] == account])
-        self.__client.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("data/client_data.csv", index=False)
         print()
 
         print("Updated account balance")
@@ -241,7 +229,7 @@ class Users():
         # Removes client from csv file
         self.__client.drop(self.__client[self.__client['Account Number'] == account].index, inplace=True)
         # writes to csv
-        self.__client.to_csv("../data/client_data.csv", index=False)
+        self.__client.to_csv("data/client_data.csv", index=False)
         print("Client Deleted")
 
     def negative_balance(self):
@@ -249,63 +237,3 @@ class Users():
         account = (self.__client.loc[self.__client['Account balance'] < 0])
 
         print(f"{account.__users}")
-
-
-    def edit_last_name(self, account, new_name):
-
-        __account = Users(self.__client.loc[self.__client['Account Number'] == account])
-        print('*' * 107)
-        print(f"{__account.__users}")
-        print("*" * 107)
-        # newName variable set as an input for the new name of the client
-
-        # Updates the clients name
-        self.__client.loc[(self.__client['Account Number'] == account), 'Last name'] = new_name
-        # Gets an updated list of the client
-        __account.__users = (self.__client.loc[self.__client['Account Number'] == account])
-        print("Updated Account:")
-        print(f"{__account.__users}")
-        self.__client.to_csv("../data/client_data.csv", index=False)
-
-
-
-    def edit_title_name(self, account, new_title):
-
-        __account = Users(self.__client.loc[self.__client['Account Number'] == account])
-        print('*' * 107)
-        print(f"{__account.__users}")
-        print("*" * 107)
-        # newName variable set as an input for the new name of the client
-
-        # Updates the clients name
-        self.__client.loc[(self.__client['Account Number'] == account), 'Title'] = new_title
-        # Gets an updated list of the client
-        __account.__users = (self.__client.loc[self.__client['Account Number'] == account])
-        print("Updated Account:")
-        print(f"{__account.__users}")
-        self.__client.to_csv("../data/client_data.csv", index=False)
-
-
-    def edit_occupation_name(self, account, new_occupation):
-
-        __account = Users(self.__client.loc[self.__client['Account Number'] == account])
-        print('*' * 107)
-        print(f"{__account.__users}")
-        print("*" * 107)
-        # newName variable set as an input for the new name of the client
-
-        # Updates the clients name
-        self.__client.loc[(self.__client['Account Number'] == account), 'Occupation'] = new_occupation
-        # Gets an updated list of the client
-        __account.__users = (self.__client.loc[self.__client['Account Number'] == account])
-        print("Updated Account:")
-        print(f"{__account.__users}")
-        self.__client.to_csv("../data/client_data.csv", index=False)
-
-
-
-
-
-
-
-
