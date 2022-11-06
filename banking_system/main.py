@@ -25,45 +25,15 @@ clinet_to_add = people.Add("Tony", "Hawk", "mr", 5500, "05/12/1968", "Skate-bord
 
 
 # Runs the UI interface
-#Menu().run()
-# Views all users
-# s.view_all()
-
-# Searches for account with the account number =  5000
-#s.search(account=4999)
-
-# Search for client based on name, and date of birth. This is not case-sensitive
-# s.search_by_name(first_name="aaro", last_name="cunningham", date_of_birth="01/29/1999")
-
-# Adds a client, this is case-sensitive and requires correct input
-#s.add_client(first_name="Tony", last_name="Hawk", title="Mr", account_number="5540", date_of_birth="05/12/1968", occupation="Skateborder", account_balance=2, overdraft_limit=-200)
-
-# Allows the user to withdraw money from an account, adds £5 fee for going over withdraw limit
-#s.withdraw(account=5000, withdraw=500)
-
-# Allows the user to deposit money into the account
-# s.deposit(account=4999, deposit=500)
-
-# Removes client from the list
-# s.remove(account=5000)
-
-# View accounts with negative balance
-# s.negative_balance()
-
-# Allows the user to edit a name of a client
-#s.edit_first_name(account=4999, new_name="Aaron")
-
-# Allows user to edit last name of a client
-# s.edit_last_name(account=4999, new_name="Cunningham")
-
-# Allows a user to edit a title of a client
-# s.edit_title_name(account=4999, new_title="mr")
 
 
-# Allows a user to edit the occupation of a user
-# s.edit_occupation_name(account=4999, new_occupation="Job")
 
 
+
+def view_all():
+    """Allows you to see the full list of clients"""
+    # Views all users
+    s.view_all()
 
 def remove():
     """This remove the client 5000 from the dataframe"""
@@ -91,7 +61,40 @@ def add_account():
     """Adds client to add object to the database"""
     clinet_to_add.add_account()
 
+def search():
+    """This function is used to search for a client in the csv file"""
+    # Search for client based on name, and date of birth. This is not case-sensitive
+    s.search_by_name(first_name="aaron", last_name="cunningham", date_of_birth="01/29/1999")
 
+def withdraw():
+    """This function withdraws month from an account and
+       adds a 5 pound charge when going over overdraft limit
+    """
+    # 0 - Account number
+    # 1 - Amount to withdraw
+    s.withdraw(account=4999, withdraw=500)
+
+def view_negative():
+    """This function allows you to see all users with negative balance"""
+    s.negative_balance()
+
+def deposit():
+    """This function allows you to depost money into a users account"""
+    # 0 - Account
+    # 1 = Amount to deposit
+    s.deposit(account=4999, deposit=500)
+
+def search_by_name():
+    """This function allows you to search for a user by their name"""
+    # 0 - First name
+    # 1 - Last name
+    # 2 - Date of birth
+    s.search_by_name(first_name="aaron", last_name="cunningham", date_of_birth="01/29/1999")
+
+def search_by_account():
+    """This function allows you to search for a client based on their account number"""
+    # 0 - Account
+    s.search(account=4999)
 
 if __name__ == '__main__':
 
