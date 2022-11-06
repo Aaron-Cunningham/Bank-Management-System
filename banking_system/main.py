@@ -15,7 +15,7 @@ menu = Menu()
 s = Users(Users)
 
 # Created person object
-client = people.Edit(account="4999")
+client = people.Edit(account=4999)
 
 # Created a client to add object
 clinet_to_add = people.Add("Tony", "Hawk", "mr", 5500, "05/12/1968", "Skate-border", 200, -200)
