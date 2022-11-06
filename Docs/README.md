@@ -8,6 +8,11 @@ portfolio 2*** assessment at Newcastle University. This projected used an OOP ap
 creating objects such as 'menu' and 'functions' in order to call functions and run functions
 from other classes
 
+
+`pip install pandas`
+
+
+
 Getting started with the banking app
 =
 Inorder to use this app you need to make sure you have the requirements installed from the
