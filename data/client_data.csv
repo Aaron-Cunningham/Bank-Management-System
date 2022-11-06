@@ -35,10 +35,10 @@ Sigmund,Kitchen,Rev,4019,05/11/2000,Recruiting Manager,56,-50
 Teriann,Skacel,Dr,4985,03/31/2001,Programmer II,5790,-1000
 Harlan,Bahia,Rev,4153,04/25/1995,Recruiting Manager,90504,-1100
 Karia,Slocket,Rev,4156,03/05/1999,Chemical Engineer,873,-350
-Muhammad,Collcutt,Mr,4611,06/24/1996,Environmental Specialist,-405,-100
+Muhammad,Collcutt,Mr,4611,06/24/1996,Environmental Specialist,-790,-100
 Maggee,Skilling,Mrs,4747,03/17/2004,Nurse Practicioner,4576,-300
 Zelma,Cornborough,Ms,4696,04/03/2000,Occupational Therapist,3209,-2000
-Griffy,Ousbie,Ms,4109,12/28/1998,Assistant Professor,-2337,-1200
+Griffy,Ousbie,Ms,4109,12/28/1998,Assistant Professor,-2722,-1200
 Sharity,McCadden,Honorable,4597,07/30/1994,Associate Professor,309,-100
 York,Beaford,Rev,4840,01/03/1994,Cost Accountant,8098,-500
 Harv,Scheffel,Mr,4030,08/23/1997,Recruiting Manager,950,-100
@@ -69,7 +69,7 @@ Jaimie,MacHarg,Honorable,4968,02/26/1993,Environmental Specialist,51,-100
 Celka,Tappington,Mr,4526,12/18/2000,Media Manager II,3501,-200
 Rad,Isaksson,Rev,4509,01/15/1996,Health Coach II,8833,-250
 Yancy,Lavell,Honorable,4366,02/13/1995,Pharmacist,252112,-9000
-Amy,Tremayle,Mr,4259,10/08/2001,Environmental Specialist,-235,-100
+Amy,Tremayle,Mr,4259,10/08/2001,Environmental Specialist,-620,-100
 Tabor,Clarae,Mrs,4591,11/05/2002,Dental Hygienist,1221,-100
 Carlos,Halso,Honorable,4952,11/21/1998,Human Resources Manager,322,-100
 Catherina,Dossit,Honorable,4907,08/24/1993,General Manager,423,-200
@@ -88,16 +88,17 @@ Erena,Guyonnet,Ms,4659,07/27/1998,Business Systems Development Analyst,1008,-100
 Annabel,Riditch,Dr,4767,06/15/2001,Programmer Analyst III,778,-200
 Thornton,Fouldes,Rev,4484,07/27/1995,VP Sales,9999,-50
 Giorgia,Yele,Rev,4607,07/07/1992,Junior Executive,750,-250
-Raynor,Maes,Mrs,4781,06/28/1993,Accountant III,-365,-300
+Raynor,Maes,Mrs,4781,06/28/1993,Accountant III,-750,-300
 Marcelo,Avon,Honorable,4780,01/01/1993,Staff Scientist,832,-200
 Crysta,Banisch,Mrs,4223,12/03/1992,Sales Representative,1320,-100
 Eugine,Janz,Mr,4306,08/26/2003,Senior Financial Analyst,440,-150
-Meggie,Booeln,Ms,4505,03/29/1993,Cost Accountant,-255,-100
+Meggie,Booeln,Ms,4505,03/29/1993,Cost Accountant,-640,-100
 Kenna,Gentiry,Dr,4532,07/22/1995,Product Engineer,909,-250
 Ginevra,Malia,Rev,4216,06/27/1993,Project Manager,-37,-200
 Raina,Mandeville,Dr,4759,12/31/1990,Data Coordiator,3290,-100
 Humfrid,Maton,Dr,4393,09/28/2003,Senior Editor,3633,-200
 Imen,Omrani,Ms,4980,03/08/2002,President,4933,-100
-Aaron,Cunningham,Mr,4999,01/29/1999,Data,1103,-100
-aaron,cunningham,mr,5000,a,job,-14,-100
-fff,f,f,4036,d,f,2,-1
+Aaron,Cunningham,Mr,4999,01/29/1999,Programmer,2103,-100
+Bob,Robinson,Mr,5000,08/08/2001,Student,-450,-100
+Tony,Hawk,mr,5500,05/12/1968,Skate-border,200,-200
+
