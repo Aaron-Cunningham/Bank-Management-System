@@ -63,6 +63,9 @@ class Edit():
 
         self.__client.to_csv("data/client_data.csv", index=False)
 
+    def negative(self):
+        self.__client < 0
+
 
 
 class Add():
