@@ -15,10 +15,10 @@ menu = Menu()
 s = Users(Users)
 
 # Created person object
-client = people.Edit(account=4999)
+client = people.Edit(account=499)
 
 # Created a client to add object
-clinet_to_add = people.Add("Tony", "Hawk", "mr", 5500, "05/12/1968", "Skate-border", 200, -200)
+clinet_to_add = people.Add("Jeff", "Bezos", "Mr", 5500, "01/12/1964", "CEO of Amazon", 6857489, -40000)
 
 
 
