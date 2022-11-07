@@ -1,7 +1,6 @@
 import random
 import pandas as pd
 import re
-from self import self
 from people import Users
 
 
