@@ -48,6 +48,7 @@ Assumptions
 ===========
 This will include all the assumptions I've made for my project.
 1) When using search_by_name, I've made the assumption that it isn't ***Case sensitive***. So when inputting
-the first name it can be either 'john' or 'John'
-2) When using withdraw, a £5 will be added to the account if they go over their overdraft limit
-3) For most of my methods the account number was used to find a specific account
+the first name it can be either 'john' or 'John'.
+2) When using withdraw, a £5 will be added to the account if they go over their overdraft limit.
+3) For most of my methods the account number was used to find a specific account.
+4) Within my edit.py I've implemented a method called account checker that checks if an account exits.
