@@ -38,7 +38,7 @@ def view_all():
 def remove():
     """This remove the client 5000 from the dataframe"""
     # 0 - Account Number
-    s.remove(5000)
+    s.remove(5500)
 
 def edit_first_name():
     """Edits first name of client object"""
