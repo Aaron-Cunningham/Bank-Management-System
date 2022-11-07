@@ -12,7 +12,7 @@ class Users():
         self.__fee = 5
         # List of clients in the bank
         self.__client = pd.read_csv("data/client_data.csv")
-        self.__write = self.__client.to_csv("data/client_data.csv", index=False)
+
 
     def view_all(self):
         """
@@ -235,4 +235,8 @@ class Users():
 
         account = (self.__client.loc[self.__client['Account balance'] < 0])
 
-        print(f"{account.__users}")
+        print(f"{account}")
+
+
+
+
