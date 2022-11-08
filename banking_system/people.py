@@ -100,7 +100,7 @@ class Users:
         self.__client.to_csv("data/client_data.csv", index=False)
 
 
-class All_Clients:
+class AllClients:
     def __init__(self):
         self.__client = pd.read_csv("data/client_data.csv")
 
