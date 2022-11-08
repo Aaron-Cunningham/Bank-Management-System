@@ -32,11 +32,10 @@ which is in position 0. To change the account you wish to remove change the acco
 5) `python banking_system\main.py edit_occupation` - Edits the occupation of the client object.
 6) `python banking_system\main.py menu` - Shows a menu UI within the terminal with functions included in the spec.
 7) `python banking_system\main.py add_account` - Adds the account of client_to_add object.
-8) `python banking_system\main.py search_by_name` - Searches for an account based on First name, Last name and date of birth.
-9) `python banking_system\main.py search_by_account` - Searches for an account based on account number.
-10) `python banking_system\main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
-11) `python banking_system\main.py deposit` - Deposits money into an account.
-12) `python banking_system\main.py view_negative` - Views all the accounts with a negative balance.
+8) `python banking_system\main.py search` - Searches for an account based on First name, Last name and date of birth.
+9) `python banking_system\main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
+10) `python banking_system\main.py deposit` - Deposits money into an account.
+11) `python banking_system\main.py view_negative` - Views all the accounts with a negative balance.
 
 Assumptions
 ===========
@@ -44,10 +43,10 @@ This will include all the assumptions I've made for my project.
 1) When using search_by_name, I've made the assumption that it isn't ***Case sensitive***. So when inputting
 the first name it can be either 'john' or 'John'.
 2) When using withdraw, a £5 will be added to the account if they go over their overdraft limit.
-3) For most of my methods the account number was used to find a specific account.
+3) For methods in the Edit class I've searched for account by account number to mix it up.
 4) Within my edit.py I've implemented a method called account checker that checks if an account exits.
 5) edit.py file has classes inside it that refers to editing a client, from first name, last name, occupation
 and adding a client.
 6) I've assumed that ***overdraft limits*** will be negative integers and ***account balance*** will be 
-positive integers
-7) The Menu UI took a functional approach mostly
+positive integers.
+7) The Menu UI took a functional approach mostly.
