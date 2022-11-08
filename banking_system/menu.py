@@ -1,7 +1,7 @@
 import random
 import pandas as pd
 import re
-from people import Users
+import people as people
 
 
 
@@ -92,7 +92,7 @@ class Menu:
         print(
             "                                                                 CLIENTS                                                                    ")
         print("*" * 140)
-        Users(Users).view_all()
+        All.view_all()
         self.returnToMenu()
 
     def remove_client(self):
@@ -503,10 +503,7 @@ class Menu:
         print(
             "                                         Clients with negative balance                                     ")
         print("*"*107)
-        negativeBalance = (clients.loc[clients['Account balance'] < 0])
-
-        print(negativeBalance)
-        print("*" * 107)
+        All.view_negative()
         self.returnToMenu()
 
     def edit_name(self):
@@ -753,3 +750,4 @@ class Menu:
 
 
 
+All = people.AllClients()
