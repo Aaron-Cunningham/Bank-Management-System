@@ -35,10 +35,10 @@ Mandi,Anster,Ms,Polygender,4889,01/28/1994,Community Outreach Specialist,56,-50
 Emogene,Hardy-Piggin,Ms,Female,2624,02/26/1992,Office Assistant III,5790,-1000
 Gael,Frazer,Rev,Female,1893,12/01/1998,Physical Therapy Assistant,90504,-1100
 Cherin,Escoffrey,Mrs,Female,1621,12/12/1997,Nurse,873,-350
-Roosevelt,Janusz,Dr,Agender,1422,09/29/1993,Marketing Assistant,-950,-100
+Roosevelt,Janusz,Dr,Agender,1422,09/29/1993,Marketing Assistant,-955,-100
 Stephanus,Illsley,Dr,Male,4486,06/19/2002,Internal Auditor,4576,-300
 Sydelle,Gozard,Mr,Female,3834,11/25/2001,Internal Auditor,3209,-2000
-Jeff,Westphalen,Mr,Male,1647,12/25/1993,Research Nurse,-2882,-1200
+Jeff,Westphalen,Mr,Male,1647,12/25/1993,Research Nurse,-2887,-1200
 Terrel,Ryder,Rev,Male,4315,07/05/1992,Senior Developer,309,-100
 Wayland,Pemberton,Mr,Male,3672,04/01/1991,Compensation Analyst,8098,-500
 Jane,Dreini,Dr,Female,1389,11/04/1995,Clinical Specialist,950,-100
@@ -69,7 +69,7 @@ Alex,Luberto,Mr,Female,4685,06/13/1995,Accounting Assistant I,51,-100
 Karoline,Cockshutt,Rev,Female,2942,09/04/1990,Speech Pathologist,3501,-200
 Bethany,Bakeup,Honorable,Female,1250,06/22/1991,Software Test Engineer I,8833,-250
 Nathanael,Challinor,Mrs,Male,2433,08/29/1992,Paralegal,252112,-9000
-Ninon,Hanrott,Rev,Female,3103,12/06/2001,Programmer I,-780,-100
+Ninon,Hanrott,Rev,Female,3103,12/06/2001,Programmer I,-785,-100
 Mair,Gherardesci,Honorable,Female,4978,11/02/2004,Internal Auditor,1221,-100
 Mil,Matten,Mrs,Female,4433,05/18/2001,Junior Executive,322,-100
 Agnola,Murt,Rev,Female,1286,10/25/1997,Engineer I,423,-200
@@ -88,11 +88,11 @@ Wilie,Atyeo,Mrs,Non-binary,3519,08/24/1999,Software Consultant,1008,-100
 Walther,Strotone,Mr,Male,3221,01/25/1991,Geologist I,778,-200
 Gusty,Stirzaker,Ms,Female,3978,08/23/1991,Administrative Assistant IV,9999,-50
 Sumner,Dryden,Dr,Agender,2174,06/01/1992,Mechanical Systems Engineer,750,-250
-Clayborn,Gashion,Ms,Genderfluid,3138,01/12/1994,Geological Engineer,-910,-300
+Clayborn,Gashion,Ms,Genderfluid,3138,01/12/1994,Geological Engineer,-915,-300
 Sibella,Sangwin,Rev,Female,1416,06/20/2003,Data Coordiator,832,-200
 Lalo,Van der Hoven,Ms,Male,2782,10/14/2001,Nurse Practicioner,1320,-100
 Wallis,Niemiec,Ms,Female,1796,08/28/2001,Registered Nurse,440,-150
-Armando,Sargint,Dr,Male,1845,09/01/2003,Occupational Therapist,-800,-100
+Armando,Sargint,Dr,Male,1845,09/01/2003,Occupational Therapist,-805,-100
 Stormie,Kaaskooper,Dr,Female,4301,11/15/1990,Automation Specialist IV,909,-250
 Bekki,Dougal,Mr,Female,1929,01/23/2004,Sales Representative,-37,-200
 Elfrieda,MacFaul,Dr,Female,1768,07/02/1999,Civil Engineer,3290,-100
@@ -130,4 +130,3 @@ Burt,Ruppertz,Ms,Male,4320,07/22/1991,Sales Associate,263,-995
 Mannie,Rozycki,Dr,Male,1290,12/20/1993,VP Sales,2834,-4781
 Jeff,Bezos,Mr,Male,5500,01/12/1964,CEO of Amazon,6857489,-40000
 Aaron,Cunningham,Mr,Male,4999,01/29/1999,Programmer,875,-433
-
