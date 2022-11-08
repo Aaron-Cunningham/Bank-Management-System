@@ -15,18 +15,11 @@ menu = Menu()
 s = Users(Users)
 
 # Created person object
-client = people.Edit(account=499)
+client = people.Edit(account=4999)
 
 # Created a client to add object
-clinet_to_add = people.Add("Jeff", "Bezos", "Mr", 5500, "01/12/1964", "CEO of Amazon", 6857489, -40000)
-
-
-
-
-
-# Runs the UI interface
-
-
+clinet_to_add1 = people.Add("Jeff", "Bezos", "Mr", "Male", 5500, "01/12/1964", "CEO of Amazon", 6857489, -40000)
+clinet_to_add2 = people.Add("Elon", "Musk", "Mr", "Male", 5501, "01/28/1971", "Scientist", 44456743, -45000)
 
 
 
@@ -59,7 +52,7 @@ def menu():
 
 def add_account():
     """Adds client to add object to the database"""
-    clinet_to_add.add_account()
+    clinet_to_add1.add_account()
 
 def search():
     """This function is used to search for a client in the csv file"""
