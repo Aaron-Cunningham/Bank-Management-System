@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 class Edit:
     """This class is used to edit clients details"""
 
@@ -12,8 +11,10 @@ class Edit:
     @property
     def account_check(self):
         """This checks that an account exists before proceeding with methods to change details"""
+        # Trys to find the account
         try:
             self.get_account
+            # If the account doesn't exist it will raise an Exception
             if self.get_account.empty:
                 raise Exception
         except:
@@ -29,54 +30,77 @@ class Edit:
         return self.__client.loc[self.__client['Account Number'] == self.__account]
 
     def set_first_name(self, new_name):
+        # Only allows Strings for the new name or will raise TypeError
+        if not isinstance(new_name, str):
+            raise TypeError("First name should be a string")
+        # Checks an account exists
         self.account_check
         print("*" * 108)
+        # Returns old account deatils
         print("Old account details account details: \n"
               "\n", self.get_account)
         print()
+        # Updates first name with the new_name
         self.__client.loc[(self.__client['Account Number'] == self.__account), 'First name'] = new_name
+        # Updates the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
+        # Prints out new account details
         print("New account details: \n"
               "\n", self.get_account)
         print("*" * 108)
 
     def set_last_name(self, new_name):
+        """Updates the name of an existing client"""
+        # Only allows Strings for the new name or will raise TypeError
+        if not isinstance(new_name, str):
+            raise TypeError("Last name should be a string")
+        # Check account exists
         self.account_check
         print("*" * 108)
+        # Prints out the old account details
         print("Old account details account details: \n"
               "\n", self.get_account)
         print()
+        # Updates with the new name
         self.__client.loc[(self.__client['Account Number'] == self.__account), 'Last name'] = new_name
+        # Writes to the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
+        # Returns the new account details
         print("New account details: \n"
               "\n", self.get_account)
         print("*" * 108)
 
     def set_occupation(self, new_occupation):
         """Changes the occupation of an existing client"""
+        # Will only accept new_occupation as a String otherwise will return a TypeError
+        if not isinstance(new_occupation, str):
+            raise TypeError("Occupation should be a string")
+        # Checks account exists
         self.account_check
         print("*" * 108)
+        # Prints account deatils
         print("Old account details account details: \n"
               "\n", self.get_account)
         print()
+        # Updates occupation with new_occupation
         self.__client.loc[(self.__client['Account Number'] == self.__account), 'Occupation'] = new_occupation
+        # Writes to CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
+        # Returns new account details
         print("New account details: \n"
               "\n", self.get_account)
         print("*" * 108)
-
-    def negative(self):
-        """This method only shows clients with a negative balance"""
-        neg = self.__client < 0
-        # If there are no clients with negative balance this print will run
-        if neg.empty:
-            print("No clients with negative balance")
 
 
 class Add:
 
     def __init__(self, first_name, last_name, title, pronoun, account_number, date_of_birth, occupation, account_balance,
                  overdraft_limit):
+        """
+           This method allows a new client to be added to the CSV file.
+           It takes First name, last name, title, pronoun, account number,
+           date of birth, occupation, account balance, and overdraft limit.
+        """
 
         # Exceptions with type errors if wrong information is inputted on the object
         if not isinstance(first_name, str):
@@ -119,6 +143,7 @@ class Add:
             print("No positive integers for overdraft limits")
             exit()
 
+
         # Uses the properties listed above to add the client to the CSV files.
         self.__client.loc[len(self.__client)] = [self.__first_name, self.__last_name, self.__title, self.__pronoun,
                                                  self.__account_number, self.__date_of_birth,
@@ -132,7 +157,7 @@ class Add:
         print(
             f"{self.__first_name}   {self.__last_name}   {self.__title}    {self.__pronoun}    {self.__account_number}   {self.__date_of_birth}    {self.__occupation}     {self.__account_balance}    {self.__overdraft_limit}")
         print("*" * 108)
-
+        # Updates CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
 
 
