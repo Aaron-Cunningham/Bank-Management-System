@@ -29,7 +29,7 @@ unknown_user = people.Users("Freddie", "Mercury", "09/05/1946")
 user_to_delete = people.Users("Emmanuel", "Plews", "03/25/1991")
 
 # Object created for all clients
-All = people.All_Clients()
+All = people.AllClients()
 
 
 
