@@ -26,7 +26,9 @@ Elon_Musk = clients.Add("Elon", "Musk", "Mr", "Male", 5501, "01/28/1971", "Scien
 # 2 - Date of birth
 known_user = people.Users("Aaron", "Cunningham", "01/29/1999")
 unknown_user = people.Users("Freddie", "Mercury", "09/05/1946")
-user_to_delete = people.Users("Emmanuel", "Plews", "03/25/1991")
+
+# User to delete object
+user_to_delete = people.Users("Ninon", "Hanrott", "12/06/2001")
 
 # Object created for all clients
 All = people.AllClients()
