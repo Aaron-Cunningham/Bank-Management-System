@@ -20,22 +20,23 @@ requirements folder. Furthermore, if needed, use pip commands `pip install panda
 for python3 in commands line arguments
 
 
+
 Command line arguments
-=========
+==================================
 To run the code you can use these command line arguments.
 
-1) `python banking_system\main.py view_all` - This argument shows all the clients in the database.
-2) `python banking_system\main.py remove` - This argument runs the remove method using an account number
+1) `python banking_system/main.py view_all` - This argument shows all the clients in the database.
+2) `python banking_system/main.py remove` - This argument runs the remove method using an account number
 which is in position 0. To change the account you wish to remove change the account number.
-3) `python banking_system\main.py edit_first_name` - Edits the first name of the client object.
-4) `python banking_system\main.py edit_last_name` - Edits the last name of the client object.
-5) `python banking_system\main.py edit_occupation` - Edits the occupation of the client object.
-6) `python banking_system\main.py menu` - Shows a menu UI within the terminal with functions included in the spec.
-7) `python banking_system\main.py add_account` - Adds the account of client_to_add object.
-8) `python banking_system\main.py search` - Searches for an account based on First name, Last name and date of birth.
-9) `python banking_system\main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
-10) `python banking_system\main.py deposit` - Deposits money into an account.
-11) `python banking_system\main.py view_negative` - Views all the accounts with a negative balance.
+3) `python banking_system/main.py edit_first_name` - Edits the first name of the client object.
+4) `python banking_system/main.py edit_last_name` - Edits the last name of the client object.
+5) `python banking_system/main.py edit_occupation` - Edits the occupation of the client object.
+6) `python banking_system/main.py menu` - Shows a menu UI within the terminal with functions included in the spec.
+7) `python banking_system/main.py add_account` - Adds the account of client_to_add object.
+8) `python banking_system/main.py search` - Searches for an account based on First name, Last name and date of birth.
+9) `python banking_system/main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
+10) `python banking_system/main.py deposit` - Deposits money into an account.
+11) `python banking_system/main.py view_negative` - Views all the accounts with a negative balance.
 
 Assumptions
 ===========
