@@ -36,7 +36,7 @@ class Edit:
         # Checks an account exists
         self.account_check
         print("*" * 108)
-        # Returns old account deatils
+        # Returns old account details
         print("Old account details account details: \n"
               "\n", self.get_account)
         print()
@@ -121,7 +121,7 @@ class Add:
             raise TypeError("Account balance should be an Integer")
         if not isinstance(overdraft_limit, int):
             raise TypeError("Overdraft limit should be an Negative Integer")
-        # Properties for the new client
+        # Instance variables set for the new client
         self.__first_name = first_name
         self.__last_name = last_name
         self.__title = title
