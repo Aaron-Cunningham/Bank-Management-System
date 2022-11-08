@@ -34,8 +34,6 @@ user_to_delete = people.Users("Ninon", "Hanrott", "12/06/2001")
 All = people.AllClients()
 
 
-
-
 def search():
     # Returns account that exits
     known_user.account_search()
@@ -43,9 +41,11 @@ def search():
     unknown_user.account_search()
 
 def withdraw():
+    """Withdraws money from known user object account"""
     known_user.withdraw(withdraw=500)
 
 def deposit():
+    """Deposits money into known user object account"""
     known_user.deposit(deposit=500)
 
 
