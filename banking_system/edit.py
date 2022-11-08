@@ -134,3 +134,9 @@ class Add:
         print("*" * 108)
 
         self.__client.to_csv("data/client_data.csv", index=False)
+
+
+
+
+
+
