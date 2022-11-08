@@ -51,3 +51,5 @@ and adding a client.
 positive integers.
 7) The Menu UI took a functional approach mostly.
 8) My file got corrupted during my project, so I had to delete it and retrieve it from GitHub which might show why my commits are missing.
+
+test commit
