@@ -6,6 +6,7 @@ class Users:
 
 
     def __init__(self, first_name, last_name, date_of_birth):
+
         # Instance variables set as private
         self.__first_name = first_name
         self.__last_name = last_name
@@ -31,7 +32,6 @@ class Users:
     @property
     def get_account_details(self):
         """Gets the account of the clients account number"""
-
         # Trys to match an account with the details provided
         return self.__client.loc[self.__client['First name'].str.contains(self.__first_name, case=False) & (
             self.__client['Last name'].str.contains(self.__last_name, case=False)) & (
@@ -48,6 +48,13 @@ class Users:
 
     def withdraw(self, withdraw):
         """Method created to withdraw money from a clients account"""
+        # Exception with type errors if wrong information is inputted on the object
+        if not isinstance(withdraw, int):
+            raise TypeError("Withdrawal amounts should be a integer")
+        # If statement to only allow positive integers for withdrawals
+        if withdraw < 0:
+            print("Withdrawals are positive integers only")
+            exit()
         # Checks account exists
         self.account_check
         print("Old account balance: ")
@@ -56,7 +63,7 @@ class Users:
 
         # Locates the row of the account that matches input from user and edits balance from users input
         self.__client.loc[(self.__client['First name'] == self.__first_name) & (self.__client['Last name'] == self.__last_name) &
-                          (self.__client ['Date of birth'] == self.__date_of_birth), ['Account balance']] = self.__client[
+                          (self.__client['Date of birth'] == self.__date_of_birth), ['Account balance']] = self.__client[
                                                                                                  'Account balance'] - withdraw
         # Checks to see if client went over their overdraft limit and adds £5 if they did
         self.__client.loc[
@@ -69,6 +76,13 @@ class Users:
 
     def deposit(self, deposit):
         """This method deposits money into an account"""
+        # Exception with type errors if wrong information is inputted on the object
+        if not isinstance(deposit, int):
+            raise TypeError("Deposit amount should be a integer")
+        # If statement to only allow positive integers for deposits
+        if deposit < 0:
+            print("Deposits are positive integers only")
+            exit()
         # Checks the account exists
         self.account_check
         print("Old account balance: ")
