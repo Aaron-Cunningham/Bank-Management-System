@@ -50,3 +50,4 @@ and adding a client.
 6) I've assumed that ***overdraft limits*** will be negative integers and ***account balance*** will be 
 positive integers.
 7) The Menu UI took a functional approach mostly.
+8) My file got corrupted so I had to delete it and retrieve it from GitHub which might show why my commits are missing
