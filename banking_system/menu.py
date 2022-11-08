@@ -172,6 +172,7 @@ class Menu:
         firstName = input("Enter First Name: ")
         lastName = input("Enter Last Name: ")
         title = input("Enter Title: ")
+        pronoun = input("Enter pronoun: ")
         occupation = input("Enter Occupation: ")
         accountNumber = random.randint(4000, 4999)
         # While loop until user enters right format
@@ -206,7 +207,7 @@ class Menu:
                 print("Enter only int values")
 
         # Adds data based on what was inputted
-        clients.loc[len(clients)] = [firstName, lastName, title, accountNumber, dateOfBirth, occupation,
+        clients.loc[len(clients)] = [firstName, lastName, title, pronoun, accountNumber, dateOfBirth, occupation,
                                      accountBalance,
                                      overDraftLimit]
         clients.to_csv("data/client_data.csv", index=False)
