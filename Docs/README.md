@@ -1,5 +1,5 @@
 Banking application
-=
+===================
 This is a terminal based banking application that uses the Pandas Data Analysis Library. 
 This app has a vast amount of functionality such as been able to see all clients of 
 the bank, deposit/withdraw money from a clients account, search for specific clients
@@ -7,12 +7,6 @@ in the bank, and add a client to the bank. This was created as part of my ***Pro
 portfolio 2*** assessment at Newcastle University. This projected used an OOP approach by 
 creating objects and arguments to run in command line. A Menu UI has also been implemented for
 better user experience.
-
-
-
-
-
-
 
 Getting started with the banking app
 ====================================
@@ -52,3 +46,8 @@ the first name it can be either 'john' or 'John'.
 2) When using withdraw, a £5 will be added to the account if they go over their overdraft limit.
 3) For most of my methods the account number was used to find a specific account.
 4) Within my edit.py I've implemented a method called account checker that checks if an account exits.
+5) edit.py file has classes inside it that refers to editing a client, from first name, last name, occupation
+and adding a client.
+6) I've assumed that ***overdraft limits*** will be negative integers and ***account balance*** will be 
+positive integers
+7) The Menu UI took a functional approach mostly
