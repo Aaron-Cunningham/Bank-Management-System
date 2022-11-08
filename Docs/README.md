@@ -40,7 +40,7 @@ which is in position 0. To change the account you wish to remove change the acco
 Assumptions
 ===========
 This will include all the assumptions I've made for my project.
-1) When using search_by_name, I've made the assumption that it isn't ***Case sensitive***. So when inputting
+1) When using search, I've made the assumption that it isn't ***Case sensitive***. So when inputting
 the first name it can be either 'john' or 'John'.
 2) When using withdraw, a £5 will be added to the account if they go over their overdraft limit.
 3) For methods in the Edit class I've searched for account by account number to mix it up.
@@ -50,5 +50,7 @@ and adding a client.
 6) I've assumed that ***overdraft limits*** will be negative integers and ***account balance*** will be 
 positive integers.
 7) The Menu UI took a functional approach mostly.
-8) Withdrawal and deposits are positive integers only(A check is inplace)
+8) Withdrawal and deposits are positive integers only (A check is inplace)
+9) I haven't added a user input to my methods as I assumed as part of the spec is to have already created objects, however there is user input in
+the Menu UI
 
