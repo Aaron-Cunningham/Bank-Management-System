@@ -4,6 +4,10 @@ class Edit:
     """This class is used to edit clients details"""
 
     def __init__(self, account):
+        # Only accepts an account number with integers
+        if not isinstance(account, int):
+            # Raises TypeError if account number isn't an integer
+            raise TypeError("Account number should be an integer")
         # Instance variables set private
         self.__account = account
         self.__client = pd.read_csv("data/client_data.csv")
