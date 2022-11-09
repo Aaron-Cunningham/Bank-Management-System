@@ -128,13 +128,14 @@ class AllClients:
 
     def view_negative(self):
         """View all accounts with a negative balance"""
+        try:
         # Sets self.__client = to accounts only with negative balance
-        self.__client = (self.__client.loc[self.__client['Account balance'] < 0])
+            self.__client = (self.__client.loc[self.__client['Account balance'] < 0])
         # If there are no negative accounts this if statement will run
-        if self.__client.empty:
-            print("No negative accounts")
-            exit()
+            if self.__client.empty:
+                raise Exception
+        except:
+            print("No accounts with negative balance")
 
         # Prints the accounts with negative balance
         print(self.__client)
-
