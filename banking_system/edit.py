@@ -107,6 +107,7 @@ class Add:
         """
 
         # Exceptions with type errors if wrong information is inputted on the object
+
         if not isinstance(first_name, str):
             raise TypeError("First name should be a string")
         if not isinstance(last_name, str):
@@ -125,6 +126,9 @@ class Add:
             raise TypeError("Account balance should be an Integer")
         if not isinstance(overdraft_limit, int):
             raise TypeError("Overdraft limit should be an Negative Integer")
+
+
+
         # Instance variables set for the new client
         self.__first_name = first_name
         self.__last_name = last_name
