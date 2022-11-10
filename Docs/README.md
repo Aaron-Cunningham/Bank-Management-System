@@ -19,12 +19,29 @@ requirements folder. Furthermore, if needed, use pip commands `pip install panda
 4) depending on which version of python your using write `python` for python version 2 or `python3`
 for python3 in commands line arguments
 
+Testing banking application
+==========================
+To document my tests I used a Word document that was then converted into a PDF, this can be found in the testing folder within the ZIP file. 
+Testing was relatively easy for this application. Some of the tests that I carried out, turned out to be very useful which led me to fix the problem.
+For example, the view_negative method had a bug that resulted in all my data in the CSV file changing to just clients with negative balances. 
+This bug was quickly rectified, and the test was re-run and updated in the testing Word document. Other tests I carried out included checking for
+TypeErrors, checking methods ran as expected, and results were updated in the CSV file. Without testing, I would've never of noticed the big within
+the view_negative balance with would've resulted in loosing all clients with a positive balance within the bank.
+
+Test data
+=========
+Within my main I have created some objects so the user of this application can run it without any input.
+The add client data includes `Jeff_Bazos` and `Elon_Musk`, these are used in the add account method, 
+the default client is `Jeff_Bazos`. I've also created objects called `known_user` and `unknown_user`. 
+These were added to use the search method, deposit method, and withdraw method. Furthermore, I've 
+created an object called `client_to_be_edited` this object is used for the methods that includes editing
+a clients details such as first name, last name, and occupation. `user_to_delete` was an object created
+for the remove method. Lastly, `All` is an object created to user the view all and view negative methods.
 
 
 Command line arguments
 ==================================
 To run the code you can use these command line arguments.
-
 1) `python banking_system/main.py view_all` - This argument shows all the clients in the database.
 2) `python banking_system/main.py remove` - This argument runs the remove method using an account number
 which is in position 0. To change the account you wish to remove change the account number.
