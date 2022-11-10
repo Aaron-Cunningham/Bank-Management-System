@@ -15,9 +15,9 @@ requirements folder. Furthermore, if needed, use pip commands `pip install panda
 
 1) Download the file by clicking ***code*** and ***download zip***.
 2) Make sure all the requirements are installed and a venv library is installed.
-3) Use the terminal to input the arguments.
+3) Use the terminal to input the arguments in the command line arguments section.
 4) depending on which version of python your using write `python` for python version 2 or `python3`
-for python3 in commands line arguments
+for python version 3 in commands line arguments.
 
 Testing banking application
 ==========================
@@ -28,8 +28,8 @@ This bug was quickly rectified, and the test was re-run and updated in the testi
 TypeErrors, checking methods ran as expected, and results were updated in the CSV file. Without testing, I would've never of noticed the big within
 the view_negative balance with would've resulted in loosing all clients with a positive balance within the bank.
 
-Test data
-=========
+Objects
+=======
 Within my main I have created some objects so the user of this application can run it without any input.
 The add client data includes `Jeff_Bazos` and `Elon_Musk`, these are used in the add account method, 
 the default client is `Jeff_Bazos`. I've also created objects called `known_user` and `unknown_user`. 
