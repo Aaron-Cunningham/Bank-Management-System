@@ -37,7 +37,7 @@ All = people.AllClients()
 def search():
     """Searches for object matching name and date of birth"""
     # Returns account that exits
-    # known_user.account_search()
+    known_user.account_search()
     # Returns no account found
     unknown_user.account_search()
 
