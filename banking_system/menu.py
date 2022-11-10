@@ -15,6 +15,7 @@ clients = pd.read_csv("data/client_data.csv")
 default = 0
 
 
+
 class Menu:
 
     def __init__(self):
@@ -36,6 +37,7 @@ class Menu:
             "1": self.run,
             "2": self.exit
         }
+
 
     def menu(self):
         """Creates a menu system with the print function"""
