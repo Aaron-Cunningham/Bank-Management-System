@@ -11,7 +11,14 @@ better user experience.
 Getting started with the banking app
 ====================================
 Inorder to use this app you need to make sure you have the requirements installed from the
-requirements folder. Furthermore, if needed, use pip commands `pip install pandas`, `pip install self`,`pip install datatest`, and `pip install pytest`.
+requirements folder. Furthermore, if needed, use pip commands:
+````
+pip install pandas
+pip install self
+pip install datatest
+pip install pytest
+```` 
+
 
 1) Download the file by clicking ***code*** and ***download zip***.
 2) Make sure all the requirements are installed.
@@ -26,7 +33,10 @@ Testing was relatively easy for this application. Some of the tests that I carri
 For example, the view_negative method had a bug that resulted in all my data in the CSV file changing to just clients with negative balances. 
 This bug was quickly rectified, and the test was re-run and updated in the testing Word document. Other tests I carried out included checking for
 TypeErrors, checking methods ran as expected, and results were updated in the CSV file. Without testing, I would've never of noticed the big within
-the view_negative balance with would've resulted in loosing all clients with a positive balance within the bank. To run test suite use `python3 -m pytest`
+the view_negative balance with would've resulted in loosing all clients with a positive balance within the bank. To run test suite use:
+````
+python -m pytest
+````
 
 Objects
 =======
