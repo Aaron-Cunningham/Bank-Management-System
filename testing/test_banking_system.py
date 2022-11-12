@@ -1,8 +1,8 @@
 import pandas as pd
 import pytest
 import datatest as dt
-import edit as clients
-import people as people
+import banking_system.edit as clients
+import banking_system.people as people
 
 df = pd.read_csv("data/client_data.csv")
 All = people.AllClients()
