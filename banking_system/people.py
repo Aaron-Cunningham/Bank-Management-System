@@ -69,6 +69,8 @@ class Users:
         self.__client.loc[
             self.__client['overdraft limit'] > self.__client['Account balance'], 'Account balance'] -= self.__fee
 
+        print()
+        print("New account balance: ")
         # Prints new account balance
         print(self.get_account_details)
         # Updates CSV with new balance
@@ -93,6 +95,8 @@ class Users:
             (self.__client['First name'] == self.__first_name) & (self.__client['Last name'] == self.__last_name) &
             (self.__client['Date of birth'] == self.__date_of_birth), ['Account balance']] = self.__client[
                                                                                                           'Account balance'] + deposit
+        print()
+        print("New account balance: ")
         # Returns new account balance
         print(self.get_account_details)
         # Updates the CSV with the new information
