@@ -5,6 +5,7 @@ import edit as clients
 import people as people
 
 df = pd.read_csv("data/client_data.csv")
+All = people.AllClients()
 
 
 def test_TypeError_for_account_number():
@@ -14,6 +15,7 @@ def test_TypeError_for_account_number():
     with pytest.raises(TypeError):
         client_to_be_edited = clients.Edit(account="1898")
         client_to_be_edited.set_first_name()
+
 
 def test_add_client_TypeError():
     """Tests add.account method for bad values
@@ -26,6 +28,7 @@ def test_add_client_TypeError():
                                  "-40000")
         Jeff_Bazos.add_account()
 
+
 def test_new_first_name_TypeError():
     """Tests except method for new_name which only allows strings
        >> Test value = 123
@@ -33,6 +36,7 @@ def test_new_first_name_TypeError():
     with pytest.raises(TypeError):
         client_to_be_edited = clients.Edit(account=1898)
         client_to_be_edited.set_first_name(123)
+
 
 def test_new_last_name_TypeError():
     """Tests except method for new_name which only allows strings
@@ -42,6 +46,7 @@ def test_new_last_name_TypeError():
         client_to_be_edited = clients.Edit(account=1898)
         client_to_be_edited.set_last_name(123)
 
+
 def test_new_occupation_TypeError():
     """Tests except method for new_name which only allows strings
        >> Test value = 123
@@ -50,15 +55,9 @@ def test_new_occupation_TypeError():
         client_to_be_edited = clients.Edit(account=1898)
         client_to_be_edited.set_occupation(123)
 
-def test_view_negative_clients():
-    """Tests that the length of view_negative is == 12"""
-    All = people.AllClients()
-    assert len(All.view_negative()) == 12
 
 def test_columns():
     """Tests column names validate"""
     dt.validate(df.columns,
                 {'First name', 'Last name', 'Title', 'Pronoun', 'Account Number', 'Date of birth', 'Occupation',
                  'Account balance', 'overdraft limit'}, )
-
-
