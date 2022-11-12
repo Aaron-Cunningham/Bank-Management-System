@@ -13,23 +13,35 @@ pd.set_option('display.width', 1000)
 
 menu = Menu()
 
-# Created client to be edited object
+"""Created client to be edited object"""
 client_to_be_edited = clients.Edit(account=1898)
 
 
-# Created a client to add object
+"""Created a client to add object"""
+# 0 - First name
+# 1 - Last name
+# 2 - Title
+# 3 - Pronoun
+# 4 - Account number
+# 5 - Date of birth
+# 6 - Occupation
+# 7 - Account balance
+# 8 - Overdraft limit
 Jeff_Bazos = clients.Add("Jeff", "Bezos", "Mr", "Male", 5500, "01/12/1964", "CEO of Amazon", 6857489, -40000)
 Elon_Musk = clients.Add("Elon", "Musk", "Mr", "Male", 5501, "01/28/1971", "Scientist", 44456743, -45000)
 
-# Known user and unknown object created
+"""Known user and unknown object created"""
 # 0 - First name
 # 1 - Last name
 # 2 - Date of birth
 known_user = people.Users("Aaron", "Cunningham", "01/29/1999")
 unknown_user = people.Users("Freddie", "Mercury", "09/05/1946")
 
-# User to delete object
-user_to_delete = people.Users("Ninon", "Hanrott", "12/06/2001")
+"""User to delete object"""
+# 0 - First name
+# 1 - Last name
+# 2 - Date of birth
+user_to_delete = people.Users("Stephanus", "Illsley", "06/19/2002")
 
 # Object created for all clients
 All = people.AllClients()
@@ -65,11 +77,11 @@ def edit_first_name():
     """Edits first name of client object"""
 
     # Client object name can be edited
-    client_to_be_edited.set_first_name(new_name="Jason")
+    client_to_be_edited.set_first_name(new_first_name="Jason")
 def edit_last_name():
     """Edits last name of client object"""
     # Client object last name can be edited
-    client_to_be_edited.set_last_name(new_name="Berkley")
+    client_to_be_edited.set_last_name(new_last_name="Berkley")
 def edit_occupation():
     """Edits occupation of client object"""
     # Client object occupation can be edited
@@ -85,9 +97,6 @@ def add_account():
 def view_negative():
     """Returns all clients with a negative balance"""
     All.view_negative()
-
-
-
 
 
 if __name__ == '__main__':
