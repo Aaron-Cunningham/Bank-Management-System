@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class Edit:
     """This class is used to edit clients details"""
 
@@ -85,7 +86,7 @@ class Edit:
         # Checks account exists
         self.account_check
         print("*" * 108)
-        # Prints account deatils
+        # Prints account details
         print("Old account details account details: \n"
               "\n", self.get_account)
         print()
@@ -101,7 +102,8 @@ class Edit:
 
 class Add:
 
-    def __init__(self, first_name, last_name, title, pronoun, account_number, date_of_birth, occupation, account_balance,
+    def __init__(self, first_name, last_name, title, pronoun, account_number, date_of_birth, occupation,
+                 account_balance,
                  overdraft_limit):
         """
            This method allows a new client to be added to the CSV file.
@@ -130,8 +132,6 @@ class Add:
         if not isinstance(overdraft_limit, int):
             raise TypeError("Overdraft limit should be an Negative Integer")
 
-
-
         # Instance variables set for the new client
         self.__first_name = first_name
         self.__last_name = last_name
@@ -154,7 +154,6 @@ class Add:
             print("No positive integers for overdraft limits")
             exit()
 
-
         # Uses the properties listed above to add the client to the CSV files.
         self.__client.loc[len(self.__client)] = [self.__first_name, self.__last_name, self.__title, self.__pronoun,
                                                  self.__account_number, self.__date_of_birth,
@@ -170,9 +169,3 @@ class Add:
         print("*" * 108)
         # Updates CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
-
-
-
-
-
-
