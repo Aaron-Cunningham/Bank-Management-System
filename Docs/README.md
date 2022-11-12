@@ -54,6 +54,7 @@ which is in position 0. To change the account you wish to remove change the acco
 9) `python banking_system/main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
 10) `python banking_system/main.py deposit` - Deposits money into an account.
 11) `python banking_system/main.py view_negative` - Views all the accounts with a negative balance.
+12) `python banking_system/main.py search_unknown` - Returns no account found.
 
 Assumptions
 ===========
