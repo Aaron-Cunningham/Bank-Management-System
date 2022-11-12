@@ -11,13 +11,13 @@ better user experience.
 Getting started with the banking app
 ====================================
 Inorder to use this app you need to make sure you have the requirements installed from the
-requirements folder. Furthermore, if needed, use pip commands `pip install pandas` and `pip install self`.
+requirements folder. Furthermore, if needed, use pip commands `pip install pandas`, `pip install self`,`pip install datatest`, and `pip install pytest`.
 
 1) Download the file by clicking ***code*** and ***download zip***.
-2) Make sure all the requirements are installed and a venv library is installed.
+2) Make sure all the requirements are installed.
 3) Use the terminal to input the arguments in the command line arguments section.
-4) depending on which version of python your using write `python` for python version 2 or `python3`
-for python version 3 in commands line arguments.
+4) depending on which version of python you're using, write `python` for python version 2 or `python3`
+for python version 3 at the beginning of the command line arguments.
 
 Testing banking application
 ==========================
@@ -68,8 +68,8 @@ and adding a client.
 6) I've assumed that ***overdraft limits*** will be negative integers and ***account balance*** will be 
 positive integers.
 7) The Menu UI took a functional approach mostly.
-8) Withdrawal and deposits are positive integers only (A check is inplace)
+8) Withdrawal and deposits are positive integers only (A check is inplace).
 9) I haven't added a user input to my methods as I assumed as part of the spec is to have already created objects, however there is user input in
-the Menu UI
-10) Date of birth is stored as a String value instead of using the date and time
+the Menu UI.
+10) Date of birth is stored as a String value instead of using the date and time.
 
