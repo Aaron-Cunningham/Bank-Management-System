@@ -12,6 +12,9 @@ class Edit:
         self.__account = account
         self.__client = pd.read_csv("data/client_data.csv")
 
+    def size(self):
+        return len(self.__client)
+
     @property
     def account_check(self):
         """This checks that an account exists before proceeding with methods to change details"""
@@ -33,9 +36,9 @@ class Edit:
 
         return self.__client.loc[self.__client['Account Number'] == self.__account]
 
-    def set_first_name(self, new_name):
+    def set_first_name(self, new_first_name):
         # Only allows Strings for the new name or will raise TypeError
-        if not isinstance(new_name, str):
+        if not isinstance(new_first_name, str):
             raise TypeError("First name should be a string")
         # Checks an account exists
         self.account_check
@@ -45,7 +48,7 @@ class Edit:
               "\n", self.get_account)
         print()
         # Updates first name with the new_name
-        self.__client.loc[(self.__client['Account Number'] == self.__account), 'First name'] = new_name
+        self.__client.loc[(self.__client['Account Number'] == self.__account), 'First name'] = new_first_name
         # Updates the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
         # Prints out new account details
@@ -53,10 +56,10 @@ class Edit:
               "\n", self.get_account)
         print("*" * 108)
 
-    def set_last_name(self, new_name):
+    def set_last_name(self, new_last_name):
         """Updates the name of an existing client"""
         # Only allows Strings for the new name or will raise TypeError
-        if not isinstance(new_name, str):
+        if not isinstance(new_last_name, str):
             raise TypeError("Last name should be a string")
         # Check account exists
         self.account_check
@@ -66,7 +69,7 @@ class Edit:
               "\n", self.get_account)
         print()
         # Updates with the new name
-        self.__client.loc[(self.__client['Account Number'] == self.__account), 'Last name'] = new_name
+        self.__client.loc[(self.__client['Account Number'] == self.__account), 'Last name'] = new_last_name
         # Writes to the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
         # Returns the new account details
