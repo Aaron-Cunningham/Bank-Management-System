@@ -35,7 +35,6 @@ Mandi,Anster,Ms,Polygender,4889,01/28/1994,Community Outreach Specialist,56,-50
 Emogene,Hardy-Piggin,Ms,Female,2624,02/26/1992,Office Assistant III,5790,-1000
 Gael,Frazer,Rev,Female,1893,12/01/1998,Physical Therapy Assistant,90504,-1100
 Cherin,Escoffrey,Mrs,Female,1621,12/12/1997,Nurse,873,-350
-Stephanus,Illsley,Dr,Male,4486,06/19/2002,Internal Auditor,4576,-300
 Sydelle,Gozard,Mr,Female,3834,11/25/2001,Internal Auditor,3209,-2000
 Terrel,Ryder,Rev,Male,4315,07/05/1992,Senior Developer,309,-100
 Wayland,Pemberton,Mr,Male,3672,04/01/1991,Compensation Analyst,8098,-500
@@ -74,7 +73,7 @@ Humfried,Dhenin,Mr,Male,1944,07/02/2002,Geological Engineer,25,-50
 Gib,Callum,Mr,Male,1918,04/14/1993,Dental Hygienist,929,-100
 Cecil,de Glanville,Mr,Female,3629,07/28/1992,GIS Technical Architect,402,-230
 Jeromy,Curnick,Dr,Male,2855,02/01/1997,Assistant Manager,-52,-250
-Hazel,Robardey,Honorable,Female,2299,11/27/1995,Teacher,-94,-100
+Hazel,Robardey,Honorable,Female,2299,11/27/1995,Teacher,-100,-100
 Lina,Rosenhaupt,Rev,Female,1847,05/02/1997,Automation Specialist II,-78,-200
 Meryl,Wasielewicz,Rev,Female,1330,08/17/1991,Occupational Therapist,463,-100
 Elwood,Lyddiard,Mrs,Male,3346,07/07/1992,Sales Associate,1238,-100
@@ -111,7 +110,7 @@ Valry,Stolze,Mrs,Non-binary,4568,03/04/1994,Financial Advisor,4787,-2501
 Wainwright,Gorrie,Honorable,Male,3537,04/22/2001,Mechanical Systems Engineer,3061,-295
 Linea,Biggans,Mrs,Female,1057,05/11/2004,VP Sales,1787,-3678
 Theressa,Dechelette,Mrs,Female,4259,09/02/1992,Research Nurse,2712,-3525
-Barde,Astle,Rev,Male,1898,11/04/2003,Desktop Support Technician,3909,-3727
+Billy,Astle,Rev,Male,1898,11/04/2003,Desktop Support Technician,3909,-3727
 Sallee,Yes,Rev,Female,4791,01/19/2003,VP Product Management,2381,-4384
 Arlina,Edgars,Mrs,Female,1003,01/10/2002,Accountant IV,2400,-856
 Vasilis,Pigeon,Mr,Male,1129,11/09/2002,Software Consultant,1669,-1873
@@ -123,5 +122,5 @@ Randee,Storcke,Rev,Female,1020,09/02/1995,Statistician III,4291,-3886
 Paxton,Haugg,Mr,Male,2077,05/26/2004,Database Administrator I,4954,-1445
 Burt,Ruppertz,Ms,Male,4320,07/22/1991,Sales Associate,263,-995
 Mannie,Rozycki,Dr,Male,1290,12/20/1993,VP Sales,2834,-4781
-Jeff,Bezos,Mr,Male,5500,01/12/1964,CEO of Amazon,6857489,-40000
-Aaron,Cunningham,Mr,Male,4999,01/29/1999,Programmer,370,-433
+Aaron,Cunningham,Mr,Male,4999,01/29/1999,Programmer,-130,-433
+Stephanus,Illsley,Dr,Male,4486,06/19/2002,Internal Auditor,4576,-300
