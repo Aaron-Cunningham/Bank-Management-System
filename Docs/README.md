@@ -26,9 +26,13 @@ pip install pytest
 4) depending on which version of python you're using, write `python` for python version 2 or `python3`
 for python version 3 at the beginning of the command line arguments.
 
+Note: You can change the values in the methods to whatever values you desire. I've commented in the code which information goes in which 
+position within the main above the desired method.
+
+
 Testing banking application
 ==========================
-To document my tests I used a Word document that was then converted into a PDF, this can be found in the testing folder within the ZIP file. 
+To document my tests I used a Word document that was then converted into a PDF, this can be found in the testing folder. Furthermore, I used datatest and pytest. 
 Testing was relatively easy for this application. Some of the tests that I carried out, turned out to be very useful which led me to fix the problem.
 For example, the view_negative method had a bug that resulted in all my data in the CSV file changing to just clients with negative balances. 
 This bug was quickly rectified, and the test was re-run and updated in the testing Word document. Other tests I carried out included checking for
@@ -80,7 +84,8 @@ and adding a client.
 positive integers.
 7) The Menu UI took a functional approach mostly.
 8) Withdrawal and deposits are positive integers only (A check is inplace).
-9) I haven't added a user input to my methods as I assumed as part of the spec is to have already created objects, however there is user input in
-the Menu UI.
+9) I haven't used the user input function in my methods as I assumed as part of the spec was to create the backend of the bank 
+management system which demonstrates good use of OOP. However, there is user input in the Menu UI.
 10) Date of birth is stored as a String value instead of using the date and time.
+11) Account numbers will be stored as positive integers.
 
