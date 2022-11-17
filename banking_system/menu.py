@@ -70,7 +70,7 @@ class Menu:
                 select()
             else:
                 # Stops the user putting an invalid input
-                print("{0} is not a valid choice".format(option))
+                print("{0} is not valid".format(option))
 
     def returnToMenu(self):
         '''Function that returns user back to the menu or exits the program'''
@@ -83,7 +83,7 @@ class Menu:
             if select:
                 select()
             else:
-                print("{0} is not a valid choice\n"
+                print("{0} is not valid\n"
                       "Would you like to return to the menu?\n"
                       "1: Yes\n"
                       "2: Exit".format(option))
@@ -279,7 +279,7 @@ class Menu:
         print()
         # Locates the row of the account number that matches input from user and edits balance from users input
         clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients[
-                                                                                           'Account balance'] + deposit
+                                                                                        'Account balance'].add(deposit)
 
         updatedAmount = (clients.loc[clients['Account Number'] == accountNumber])
         # prints clients details with updated deposit amount
@@ -361,8 +361,11 @@ class Menu:
                 print("Enter only int values")
 
         # Locates the row of the account number that matches input from user and edits balance from users input
-        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients['Account balance'] - withdraw
+        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients['Account balance'].subtract(withdraw)
+
         # Adds £5 fee if the client goes over their overdraft limit
+        # Adapted from
+        # https://www.geeksforgeeks.org/ways-to-apply-an-if-condition-in-pandas-dataframe/
         clients.loc[clients['overdraft limit'] > clients['Account balance'], 'Account balance'] -= fee
         # Writes to CSV file with updated data
         clients.to_csv("data/client_data.csv", index=False)
@@ -413,7 +416,10 @@ class Menu:
 
         while True:
             try:
+
                 # Searches the columns with matching info. Not case-sensitive
+                # Adapted from
+                # https://www.plus2net.com/python/pandas-str-contains.php
                 accountHolder = (clients.loc[clients['First name'].str.contains(firstName, case=False) & (
                     clients['Last name'].str.contains(lastName, case=False)) & (
                                                  clients['Date of birth'].str.contains(dateOfBirth))])
@@ -509,7 +515,6 @@ class Menu:
         self.returnToMenu()
 
     def edit_name(self):
-        from menu import Menu
         """Allows the clients name to be edited"""
         while True:
             # Try except when user enters wrong value in input
@@ -551,9 +556,12 @@ class Menu:
         print(client)
         print("*" * 107)
         # newName variable set as an input for the new name of the client
-        newName = input("Enter the name you want to change to: ")
+        newFirstName = input("Enter the name you want to change to: ")
+
         # Updates the clients name
-        clients.loc[(clients['Account Number'] == accountNumber), 'First name'] = newName
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
+        clients.loc[(clients['Account Number'] == accountNumber), 'First name'] = newFirstName
         # Gets an updated list of the client
         updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
         print("*" * 107)
@@ -613,9 +621,12 @@ class Menu:
         print(client)
         print("*" * 107)
         # newName variable set to an input for the uer to input the new name
-        newName = input("Enter the last name you want to change to: ")
+        newLastName = input("Enter the last name you want to change to: ")
+
         # Updates the account with the new name inputted
-        clients.loc[(clients['Account Number'] == accountNumber), 'Last name'] = newName
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
+        clients.loc[(clients['Account Number'] == accountNumber), 'Last name'] = newLastName
         # Gets an updated list of the client
         updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
         print("*" * 107)
@@ -674,7 +685,10 @@ class Menu:
         print("*" * 107)
         # newTitle varible set for the user to enter the new title for the client
         newTitle = input("Enter the title you want to change to: ")
+
         # Updates the clients title
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
         clients.loc[(clients['Account Number'] == accountNumber), 'Title'] = newTitle
         # Retrieves an updated list of clients
         updatedClient = (clients.loc[clients['Account Number'] == accountNumber])
@@ -735,7 +749,10 @@ class Menu:
         print("*" * 107)
         # newOccupation variable set to an input from the user to change to
         newOccupation = input("Enter the occupation you want to change to: ")
+
         # Updated the clients details with the new inputted occupation
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
         clients.loc[(clients['Account Number'] == accountNumber), 'Occupation'] = newOccupation
         # updatedClient variable to fetch the updated list with the new client details
         updatedClient = (clients.loc[clients['Account Number'] == accountNumber])

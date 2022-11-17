@@ -34,7 +34,6 @@ class Edit:
     @property
     def get_account(self):
         """Gets the account of the clients account number"""
-
         return self.__client.loc[self.__client['Account Number'] == self.__account]
 
     def set_first_name(self, new_first_name):
@@ -49,7 +48,9 @@ class Edit:
               "\n", self.get_account)
         print()
         # Updates first name with the new_name
-        self.__client.loc[(self.__client['Account Number'] == self.__account), 'First name'] = new_first_name
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
+        self.__client.loc[self.__client['Account Number'] == self.__account, 'First name'] = new_first_name
         # Updates the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
         # Prints out new account details
@@ -70,7 +71,9 @@ class Edit:
               "\n", self.get_account)
         print()
         # Updates with the new name
-        self.__client.loc[(self.__client['Account Number'] == self.__account), 'Last name'] = new_last_name
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
+        self.__client.loc[self.__client['Account Number'] == self.__account, 'Last name'] = new_last_name
         # Writes to the CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
         # Returns the new account details
@@ -91,7 +94,9 @@ class Edit:
               "\n", self.get_account)
         print()
         # Updates occupation with new_occupation
-        self.__client.loc[(self.__client['Account Number'] == self.__account), 'Occupation'] = new_occupation
+        # Adapted from
+        # https://stackoverflow.com/questions/36909977/update-row-values-where-certain-condition-is-met-in-pandas
+        self.__client.loc[self.__client['Account Number'] == self.__account, 'Occupation'] = new_occupation
         # Writes to CSV file
         self.__client.to_csv("data/client_data.csv", index=False)
         # Returns new account details

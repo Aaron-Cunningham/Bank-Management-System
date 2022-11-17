@@ -33,6 +33,8 @@ class Users:
     def get_account_details(self):
         """Gets the account of the clients account number"""
         # Trys to match an account with the details provided
+        # Adapted from
+        # https://www.plus2net.com/python/pandas-str-contains.php
         return self.__client.loc[self.__client['First name'].str.contains(self.__first_name, case=False) & (
             self.__client['Last name'].str.contains(self.__last_name, case=False)) & (
                               self.__client['Date of birth'].str.contains(self.__date_of_birth, case=False))]
@@ -62,10 +64,14 @@ class Users:
         print(self.get_account_details)
 
         # Locates the row of the account that matches input from user and edits balance from users input
+        # Adapted from
+        # https://stackoverflow.com/questions/57054946/how-to-match-multiple-columns-and-find-specific-column-value-in-pandas
         self.__client.loc[(self.__client['First name'] == self.__first_name) & (self.__client['Last name'] == self.__last_name) &
                           (self.__client['Date of birth'] == self.__date_of_birth), ['Account balance']] = self.__client[
-                                                                                                 'Account balance'] - withdraw
+                                                                                                 'Account balance'].subtract(withdraw)
         # Checks to see if client went over their overdraft limit and adds £5 if they did
+        # Adapted from
+        # https://www.geeksforgeeks.org/ways-to-apply-an-if-condition-in-pandas-dataframe/
         self.__client.loc[
             self.__client['overdraft limit'] > self.__client['Account balance'], 'Account balance'] -= self.__fee
 
@@ -90,11 +96,14 @@ class Users:
         print("Old account balance: ")
         # Prints out the old balance
         print(self.get_account_details)
+
         # Locates the row of the account that matches input from user and edits balance from users input
+        # Adapted from
+        # https://stackoverflow.com/questions/57054946/how-to-match-multiple-columns-and-find-specific-column-value-in-pandas
         self.__client.loc[
             (self.__client['First name'] == self.__first_name) & (self.__client['Last name'] == self.__last_name) &
             (self.__client['Date of birth'] == self.__date_of_birth), ['Account balance']] = self.__client[
-                                                                                                          'Account balance'] + deposit
+                                                                                                          'Account balance'].add(deposit)
         print()
         print("New account balance: ")
         # Returns new account balance
@@ -134,7 +143,7 @@ class AllClients:
         """View all accounts with a negative balance"""
         try:
         # Sets self.__client = to accounts only with negative balance
-            self.__client = (self.__client.loc[self.__client['Account balance'] < 0])
+            self.__client = self.__client.loc[self.__client['Account balance'] < 0]
         # If there are no negative accounts this if statement will run
             if self.__client.empty:
                 raise Exception
