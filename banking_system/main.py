@@ -26,6 +26,7 @@ client_to_be_edited = clients.Edit(account=1898)
 # 8 - Overdraft limit
 Jeff_Bazos = clients.Add("Jeff", "Bezos", "Mr", "Male", 5500, "01/12/1964", "CEO of Amazon", 6857489, -40000)
 Elon_Musk = clients.Add("Elon", "Musk", "Mr", "Male", 5501, "01/28/1971", "Scientist", 44456743, -45000)
+Cristiano_Ronaldo = clients.Add("Cristiano", "Ronaldo", "Mr", "Male", 5502, "02/05/1985", "Footballer", 48573633, -5000)
 
 """Known user and unknown object created"""
 # 0 - First name
@@ -93,12 +94,20 @@ def edit_occupation():
 
 def menu():
     """Runs the UI version of the program"""
-    Menu().run()
+    Menu().menu()
 
 
-def add_account():
-    """Adds client to add object to the database"""
+def add_jeff_bazos():
+    """Adds Jeff_Bazos object to the CSV file"""
     Jeff_Bazos.add_account()
+
+def add_elon_musk():
+    """Adds Elon_Musk object to the CSV file"""
+    Elon_Musk.add_account()
+
+def add_cristiano_ronaldo():
+    """Adds Cristiano_Ronaldo object to the CSV file"""
+    Cristiano_Ronaldo.add_account()
 
 
 def view_negative():

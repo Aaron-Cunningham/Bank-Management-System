@@ -1,6 +1,8 @@
 Banking application
 ===================
-This is a terminal based banking application that uses the Pandas Data Analysis Library. 
+This is a terminal based banking application that uses the Pandas Data Analysis Library.
+This application required me to research pandas and how to edit data within the CSV file.
+I did this by using various reliable sources such as Geeksforgeeks and Stackoverflow
 This app has a vast amount of functionality such as been able to see all clients of 
 the bank, deposit/withdraw money from a clients account, search for specific clients
 in the bank, and add a client to the bank. This was created as part of my ***Programming 
@@ -26,7 +28,12 @@ pip install pytest
 4) depending on which version of python you're using, write `python` for python version 2 or `python3`
 for python version 3 at the beginning of the command line arguments.
 
-Note: You can change the values in the methods to whatever values you desire. I've commented in the code which information goes in which 
+Note: You can change the values in the methods to whatever values you desire for example:
+````
+
+````
+
+I've commented in the code which information goes in which 
 position within the main above the desired method.
 
 
@@ -63,7 +70,9 @@ which is in position 0. To change the account you wish to remove change the acco
 4) `python banking_system/main.py edit_last_name` - Edits the last name of the client object.
 5) `python banking_system/main.py edit_occupation` - Edits the occupation of the client object.
 6) `python banking_system/main.py menu` - Shows a menu UI within the terminal with functions included in the spec.
-7) `python banking_system/main.py add_account` - Adds the account of client_to_add object.
+7) `python banking_system/main.py add_elon_musk` - Adds the account Elon_musk to the CSV.
+8) `python banking_system/main.py add_jeff_bazos` - Adds the account Jeff_Bazos to the CSV.
+9) `python banking_system/main.py add_cristiano_ronaldo` - Adds the account Cristiano_Ronaldo to the CSV.
 8) `python banking_system/main.py search` - Searches for an account based on First name, Last name and date of birth.
 9) `python banking_system/main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
 10) `python banking_system/main.py deposit` - Deposits money into an account.

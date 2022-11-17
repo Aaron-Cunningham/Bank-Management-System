@@ -3,9 +3,6 @@ import pandas as pd
 import re
 import people as people
 
-
-
-
 # Sets the column and row display options
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
@@ -15,29 +12,11 @@ clients = pd.read_csv("data/client_data.csv")
 default = 0
 
 
-
 class Menu:
 
     def __init__(self):
 
-
-        self.menuChoices = {
-            "1": self.view_clients,
-            "2": self.remove_client,
-            "3": self.add_client,
-            "4": self.deposit_money,
-            "5": self.withdraw_money,
-            "6": self.edit_client,
-            "7": self.account_search,
-            "8": self.negativeBalance,
-            "9": self.exit
-        }
-
-        self.returnMenuChoices = {
-            "1": self.run,
-            "2": self.exit
-        }
-
+        pass
 
     def menu(self):
         """Creates a menu system with the print function"""
@@ -57,20 +36,36 @@ class Menu:
               "Select 7 to search for an account\n"
               "Select 8 to see clients with a negative balance\n"
               "Select 9 to exit")
-        print("*"*48)
-
-    def run(self):
-        """Displays the menu and allows the user to input a choice"""
+        print("*" * 48)
+        default = 9
+        # Checks menu option is an int
         while True:
-            Menu.menu(self)
-            option = input("Enter an option: ")
-            select = self.menuChoices.get(option)
-            if select:
-                # If a user selects a valid option it will run
-                select()
-            else:
-                # Stops the user putting an invalid input
-                print("{0} is not valid".format(option))
+            try:
+                option = int(input("Enter your choice: "))
+                break
+            except ValueError:
+                print("Menu options only, this isn't a valid input")
+        if option == 1:
+            self.view_clients()
+        elif option == 2:
+            self.remove_client()
+        elif option == 3:
+            self.add_client()
+        elif option == 4:
+            self.deposit_money()
+        elif option == 5:
+            self.withdraw_money()
+        elif option == 6:
+            self.edit_client()
+        elif option == 7:
+            self.account_search()
+        elif option == 8:
+            self.negativeBalance()
+        elif option == 9:
+            exit()
+        elif option != default:
+            self.menu()
+            print("Menu options only, this isn't a valid input")
 
     def returnToMenu(self):
         '''Function that returns user back to the menu or exits the program'''
@@ -78,15 +73,17 @@ class Menu:
               "1: Yes\n"
               "2: Exit")
         while True:
-            option = input("Enter an option: ")
-            select = self.returnMenuChoices.get(option)
-            if select:
-                select()
-            else:
-                print("{0} is not valid\n"
-                      "Would you like to return to the menu?\n"
+            try:
+                option = int(input("Enter your choice: "))
+                break
+            except ValueError:
+                print("Would you like to return to the menu?\n"
                       "1: Yes\n"
-                      "2: Exit".format(option))
+                      "2: Exit")
+        if option == 1:
+            self.menu()
+        elif option == 2:
+            exit()
 
     def view_clients(self):
         """Views all clients in the CSV file"""
@@ -134,7 +131,7 @@ class Menu:
                 if option == 1:
                     self.remove_client()
                 elif option == 2:
-                    self.run()
+                    self.menu()
                     break
         print('*' * 107)
         print(accountHolder)
@@ -155,15 +152,15 @@ class Menu:
         if option == 1:
             clients.drop(clients[clients['Account Number'] == accountNumber].index, inplace=True)
         elif option == 2:
-            self.run()
+            self.menu()
         elif option != default:
             print("Not a valid input, aborted deletion")
-            self.run()
+            self.menu()
         clients.to_csv("data/client_data.csv", index=False)
         print('*' * 107)
         print("                                            Client deleted                                  ")
         print('*' * 107)
-        self.run()
+        self.menu()
 
     def add_client(self):
         """Adds a new client to the CSV file/Bank"""
@@ -279,7 +276,7 @@ class Menu:
         print()
         # Locates the row of the account number that matches input from user and edits balance from users input
         clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients[
-                                                                                        'Account balance'].add(deposit)
+            'Account balance'].add(deposit)
 
         updatedAmount = (clients.loc[clients['Account Number'] == accountNumber])
         # prints clients details with updated deposit amount
@@ -337,7 +334,7 @@ class Menu:
                 if option == 1:
                     self.withdraw_money()
                 elif option == 2:
-                    self.run()
+                    self.menu()
                     break
         print("*" * 48)
         print()
@@ -348,9 +345,9 @@ class Menu:
             # Try except when user enters wrong value in input
             try:
                 # Input for the desired deposit amount
-                print("*" *24, "WARNING", "*"*24 )
+                print("*" * 24, "WARNING", "*" * 24)
                 print("£5 charge for account going over withdraw limit")
-                print("*"*57)
+                print("*" * 57)
                 withdraw = int(input("Enter the amount you wish to withdraw: "))
                 if withdraw < 0:
                     print("Positive integers only")
@@ -361,7 +358,8 @@ class Menu:
                 print("Enter only int values")
 
         # Locates the row of the account number that matches input from user and edits balance from users input
-        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients['Account balance'].subtract(withdraw)
+        clients.loc[clients['Account Number'] == accountNumber, ['Account balance']] = clients[
+            'Account balance'].subtract(withdraw)
 
         # Adds £5 fee if the client goes over their overdraft limit
         # Adapted from
@@ -408,7 +406,7 @@ class Menu:
                 break
         while True:
             dateOfBirth = re.compile(r'[a-zA-Z]*$')
-            if (dateOfBirth.match(input("Input date of birth mm/dd/yyyy: "))):
+            if dateOfBirth.match(input("Input date of birth mm/dd/yyyy: ")):
                 print('Only D.O.B allowed, try again')
                 continue
             else:
@@ -437,7 +435,7 @@ class Menu:
             if option == 1:
                 self.account_search()
             elif option == 2:
-                self.run()
+                self.menu()
                 break
 
         print(accountHolder)
@@ -445,9 +443,7 @@ class Menu:
         self.returnToMenu()
 
     def returnToMenu(self):
-        '''Function that returns user back to the menu or exits the program'''
-
-        """Function that returns user back to the menu"""
+        """Function that returns user back to the menu or exits the program"""
         default = 0
         print("Would you like to return to the menu?\n"
               "1: Yes\n"
@@ -463,11 +459,11 @@ class Menu:
 
         # Menu options
         if option == 1:
-            self.run()
+            self.menu()
         elif option == 2:
             exit()
         elif option != default:
-            self.run()
+            self.menu()
 
     def edit_client(self):
 
@@ -496,7 +492,7 @@ class Menu:
         elif option != default:
             self.edit_client()
         elif option == 5:
-            self.run()
+            self.menu()
 
     def exit(self):
         exit()
@@ -507,10 +503,10 @@ class Menu:
         This function returns a list of clients with a negative balance in their account
 
         """
-        print("*"*107)
+        print("*" * 107)
         print(
             "                                         Clients with negative balance                                     ")
-        print("*"*107)
+        print("*" * 107)
         All.view_negative()
         self.returnToMenu()
 
@@ -575,7 +571,7 @@ class Menu:
             "                                         Clients information updated                                     ")
         print('*' * 107)
 
-        self.run()
+        self.menu()
 
     def edit_last_name(self):
         """Allows the clients last name to be edited"""
@@ -639,7 +635,7 @@ class Menu:
         print(
             "                                         Clients information updated                                     ")
         print('*' * 107)
-        self.run()
+        self.menu()
 
     def edit_title(self):
         """Edits the clients title"""
@@ -702,7 +698,7 @@ class Menu:
         print(
             "                                         Clients information updated                                     ")
         print('*' * 107)
-        self.run()
+        self.menu()
 
     def edit_occupation(self):
         """Allows the clients occupation to be edited"""
@@ -766,7 +762,6 @@ class Menu:
             "                                         Clients information updated                                     ")
         print('*' * 107)
         self.returnToMenu()
-
 
 
 All = people.AllClients()
