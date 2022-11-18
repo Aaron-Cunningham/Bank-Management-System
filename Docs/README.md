@@ -28,13 +28,8 @@ pip install pytest
 4) depending on which version of python you're using, write `python` for python version 2 or `python3`
 for python version 3 at the beginning of the command line arguments.
 
-Note: You can change the values in the methods to whatever values you desire for example:
-````
-
-````
-
-I've commented in the code which information goes in which 
-position within the main above the desired method.
+Note: You can change the values in the methods to whatever values you desire.
+I've commented in the code which parameter goes in which position, within the main above the desired method.
 
 
 Testing banking application
@@ -97,4 +92,3 @@ positive integers.
 management system which demonstrates good use of OOP. However, there is user input in the Menu UI.
 10) Date of birth is stored as a String value instead of using the date and time.
 11) Account numbers will be stored as positive integers.
-
