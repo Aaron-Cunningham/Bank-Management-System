@@ -73,11 +73,11 @@ which is in position 0. To change the account you wish to remove change the acco
 7) `python banking_system/main.py add_elon_musk` - Adds the account Elon_musk to the CSV.
 8) `python banking_system/main.py add_jeff_bazos` - Adds the account Jeff_Bazos to the CSV.
 9) `python banking_system/main.py add_cristiano_ronaldo` - Adds the account Cristiano_Ronaldo to the CSV.
-8) `python banking_system/main.py search` - Searches for an account based on First name, Last name and date of birth.
-9) `python banking_system/main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
-10) `python banking_system/main.py deposit` - Deposits money into an account.
-11) `python banking_system/main.py view_negative` - Views all the accounts with a negative balance.
-12) `python banking_system/main.py search_unknown` - Returns no account found.
+10) `python banking_system/main.py search` - Searches for an account based on First name, Last name and date of birth.
+11) `python banking_system/main.py withdraw` - Withdraws money from account with £5 charge added for going over overdraft.
+12) `python banking_system/main.py deposit` - Deposits money into an account.
+13) `python banking_system/main.py view_negative` - Views all the accounts with a negative balance.
+14) `python banking_system/main.py search_unknown` - Returns no account found.
 
 Assumptions
 ===========
