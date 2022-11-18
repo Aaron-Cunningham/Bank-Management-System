@@ -5,7 +5,7 @@ import banking_system.edit as clients
 import banking_system.people as people
 
 df = pd.read_csv("data/client_data.csv")
-test_df = pd.read_csv("data/client_data_test.csv")
+test_df = pd.read_csv("testing/client_data_test.csv")
 All = people.AllClients()
 
 
