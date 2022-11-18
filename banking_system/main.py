@@ -11,10 +11,10 @@ pd.set_option('display.width', 1000)
 
 menu = Menu()
 
-"""Created client to be edited object"""
+# Created client to be edited object
 client_to_be_edited = clients.Edit(account=1898)
 
-"""Created a client to add object"""
+# Created a client to add object
 # 0 - First name
 # 1 - Last name
 # 2 - Title
@@ -28,7 +28,7 @@ Jeff_Bazos = clients.Add("Jeff", "Bezos", "Mr", "Male", 5500, "01/12/1964", "CEO
 Elon_Musk = clients.Add("Elon", "Musk", "Mr", "Male", 5501, "01/28/1971", "Scientist", 44456743, -45000)
 Cristiano_Ronaldo = clients.Add("Cristiano", "Ronaldo", "Mr", "Male", 5502, "02/05/1985", "Footballer", 48573633, -5000)
 
-"""Known user and unknown object created"""
+# Known user and unknown object created
 # 0 - First name
 # 1 - Last name
 # 2 - Date of birth
